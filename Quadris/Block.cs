@@ -15,9 +15,9 @@ namespace Quadris
             set;
         }
 
-        public void drawBlock(int[][] gameFieldArray, int centerIndex); //draw block in gameArray
-        public void rotate(); //change rotationstate of block
-        public void checkIfBlockCanBePlaced(int[][] gameFieldArray, int centerIndex); // Check if block can be placed around current centerIndex
+         void drawBlock(int[][] gameFieldArray, int centerIndex); //draw block in gameArray
+         void rotate(); //change rotationstate of block
+        void checkIfBlockCanBePlaced(int[][] gameFieldArray, int centerIndex); // Check if block can be placed around current centerIndex
 
     }
 }
