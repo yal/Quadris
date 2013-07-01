@@ -116,6 +116,7 @@
         <Image HorizontalAlignment="Left" Height="195" Margin="56,330,0,0" VerticalAlignment="Top" Width="195" Source="Assets/block.png"/>
         <TextBlock x:Name="Score" HorizontalAlignment="Left" Margin="949,479,0,0" TextWrapping="Wrap" Text="Score: 0" VerticalAlignment="Top" Height="46" Width="252" FontSize="30"/>
         <TextBlock x:Name="UpNextLabel" HorizontalAlignment="Left" Margin="79,294,0,0" TextWrapping="Wrap" Text="Up Next:" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="Name" HorizontalAlignment="Left" Margin="56,38,0,0" TextWrapping="Wrap" Text="Quadris" VerticalAlignment="Top" FontSize="70" FontFamily="Segoe UI Light" FontWeight="Thin"/>
 
 
     </Grid>
