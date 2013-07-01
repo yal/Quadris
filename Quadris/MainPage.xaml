@@ -8,83 +8,114 @@
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-        <Grid Name="GameArray"  HorizontalAlignment="Left" Height="518" Margin="376,72,0,0" VerticalAlignment="Top" Width="552">
-            <GridViewItem Height="50" Width="50" Margin="10,0,537,528" />
-            <GridViewItem Height="50" Width="50" Margin="65,0,482,528" />
-            <GridViewItem Height="50" Width="50" Margin="119,0,428,528" />
-            <GridViewItem Height="50" Width="50" Margin="174,0,373,528" />
-            <GridViewItem Height="50" Width="50" Margin="229,0,318,528" />
-            <GridViewItem Height="50" Width="50" Margin="284,0,263,528" />
-            <GridViewItem Height="50" Width="50" Margin="338,0,209,528" />
-            <GridViewItem Height="50" Width="50" Margin="393,0,154,528" />
-            <GridViewItem Height="50" Width="50" Margin="10,55,537,473" />
-            <GridViewItem Height="50" Width="50" Margin="65,55,482,473" />
-            <GridViewItem Height="50" Width="50" Margin="119,55,428,473" />
-            <GridViewItem Height="50" Width="50" Margin="174,55,373,473" />
-            <GridViewItem Height="50" Width="50" Margin="229,55,318,473" />
-            <GridViewItem Height="50" Width="50" Margin="284,55,263,473" />
-            <GridViewItem Height="50" Width="50" Margin="338,55,209,473" />
-            <GridViewItem Height="50" Width="50" Margin="393,55,154,473" />
-            <GridViewItem Height="50" Width="50" Margin="10,105,537,423" />
-            <GridViewItem Height="50" Width="50" Margin="65,105,482,423" />
-            <GridViewItem Height="50" Width="50" Margin="119,105,428,423" />
-            <GridViewItem Height="50" Width="50" Margin="174,105,373,423" />
-            <GridViewItem Height="50" Width="50" Margin="229,105,318,423" />
-            <GridViewItem Height="50" Width="50" Margin="284,105,263,423" />
-            <GridViewItem Height="50" Width="50" Margin="338,105,209,423" />
-            <GridViewItem Height="50" Width="50" Margin="393,105,154,423" />
-            <GridViewItem Height="50" Width="50" Margin="10,160,537,368" />
-            <GridViewItem Height="50" Width="50" Margin="65,160,482,368" />
-            <GridViewItem Height="50" Width="50" Margin="119,160,428,368" />
-            <GridViewItem Height="50" Width="50" Margin="174,160,373,368" />
-            <GridViewItem Height="50" Width="50" Margin="229,160,318,368" />
-            <GridViewItem Height="50" Width="50" Margin="284,160,263,368" />
-            <GridViewItem Height="50" Width="50" Margin="338,160,209,368" />
-            <GridViewItem Height="50" Width="50" Margin="393,160,154,368" />
-            <GridViewItem Height="50" Width="50" Margin="10,210,537,318" />
-            <GridViewItem Height="50" Width="50" Margin="65,210,482,318" />
-            <GridViewItem Height="50" Width="50" Margin="119,210,428,318" />
-            <GridViewItem Height="50" Width="50" Margin="174,210,373,318" />
-            <GridViewItem Height="50" Width="50" Margin="229,210,318,318" />
-            <GridViewItem Height="50" Width="50" Margin="284,210,263,318" />
-            <GridViewItem Height="50" Width="50" Margin="338,210,209,318" />
-            <GridViewItem Height="50" Width="50" Margin="393,210,154,318" />
-            <GridViewItem Height="50" Width="50" Margin="10,260,537,268" />
-            <GridViewItem Height="50" Width="50" Margin="65,260,482,268" />
-            <GridViewItem Height="50" Width="50" Margin="119,260,428,268" />
-            <GridViewItem Height="50" Width="50" Margin="174,260,373,268" />
-            <GridViewItem Height="50" Width="50" Margin="229,260,318,268" />
-            <GridViewItem Height="50" Width="50" Margin="284,260,263,268" />
-            <GridViewItem Height="50" Width="50" Margin="338,260,209,268" />
-            <GridViewItem Height="50" Width="50" Margin="393,260,154,268" />
-            <GridViewItem Height="50" Width="50" Margin="10,310,537,218" />
-            <GridViewItem Height="50" Width="50" Margin="65,310,482,218" />
-            <GridViewItem Height="50" Width="50" Margin="119,310,428,218" />
-            <GridViewItem Height="50" Width="50" Margin="174,310,373,218" />
-            <GridViewItem Height="50" Width="50" Margin="229,310,318,218" />
-            <GridViewItem Height="50" Width="50" Margin="284,310,263,218" />
-            <GridViewItem Height="50" Width="50" Margin="338,310,209,218" />
-            <GridViewItem Height="50" Width="50" Margin="393,310,154,218" />
-            <GridViewItem Height="50" Width="50" Margin="10,360,537,168" />
-            <GridViewItem Height="50" Width="50" Margin="65,360,482,168" />
-            <GridViewItem Height="50" Width="50" Margin="119,360,428,168" />
-            <GridViewItem Height="50" Width="50" Margin="174,360,373,168" />
-            <GridViewItem Height="50" Width="50" Margin="229,360,318,168" />
-            <GridViewItem Height="50" Width="50" Margin="284,360,263,168" />
-            <GridViewItem Height="50" Width="50" Margin="338,360,209,168" />
-            <GridViewItem Height="50" Width="50" Margin="393,360,154,168" />
-            <GridViewItem Height="50" Width="50" Margin="10,410,537,118" />
-            <GridViewItem Height="50" Width="50" Margin="65,410,482,118" />
-            <GridViewItem Height="50" Width="50" Margin="119,410,428,118" />
-            <GridViewItem Height="50" Width="50" Margin="174,410,373,118" />
-            <GridViewItem Height="50" Width="50" Margin="229,410,318,118" />
-            <GridViewItem Height="50" Width="50" Margin="284,410,263,118" />
-            <GridViewItem Height="50" Width="50" Margin="338,410,209,118" />
-            <GridViewItem Height="50" Width="50" Margin="393,410,154,118" />
+        <GridView Name="PlayingField"  HorizontalAlignment="Left" Height="531" Margin="355,132,0,0" VerticalAlignment="Top" Width="526">
+            <GridViewItem Height="50" Width="50"  Background="White"/>
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" />
 
 
-        </Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="1045,72,0,0" VerticalAlignment="Top" Height="65" Width="156"/>
+        </GridView>
+        <Button x:Name="NewgameButton" Content="New Game" HorizontalAlignment="Left" Margin="949,182,0,0" VerticalAlignment="Top" Height="65" Width="220" Background="#FF00AAFF" BorderBrush="Transparent" BorderThickness="0" FontSize="30" FontWeight="Normal"/>
+        <Image HorizontalAlignment="Left" Height="195" Margin="56,330,0,0" VerticalAlignment="Top" Width="195" Source="Assets/block.png"/>
+        <TextBlock x:Name="Score" HorizontalAlignment="Left" Margin="949,479,0,0" TextWrapping="Wrap" Text="Score: 0" VerticalAlignment="Top" Height="46" Width="252" FontSize="30"/>
+        <TextBlock x:Name="UpNextLabel" HorizontalAlignment="Left" Margin="79,294,0,0" TextWrapping="Wrap" Text="Up Next:" VerticalAlignment="Top" FontSize="30"/>
 
 
     </Grid>
