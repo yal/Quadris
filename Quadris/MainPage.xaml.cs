@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -11,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
 
 // Die Elementvorlage "Leere Seite" ist unter http://go.microsoft.com/fwlink/?LinkId=234238 dokumentiert.
 
@@ -33,6 +35,17 @@ namespace Quadris
         /// Parametereigenschaft wird normalerweise zum Konfigurieren der Seite verwendet.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+        }
+
+        private void PlayingField_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (e.ClickedItem != null)
+            {
+                Rectangle rect =  e.ClickedItem as Rectangle;
+                rect.Fill = new SolidColorBrush(Color.FromArgb(255,0x00,0xAA,0xFF));
+
+            }
+
         }
     }
 }
