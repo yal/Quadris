@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace Quadris
 {
-    class SBlock : Block, BlockControl
+    class SBlock : BlockControl, Block
     {
         public int rotation = 0;
 
 
         public void placeBlock(int[][] gameFieldArray, int centerIndexI, int centerIndexJ)
         {
-            // center is 
+            if (!checkIfBlockCanBePlaced(gameFieldArray, centerIndexI, centerIndexJ))
+                return;
+            // center is edge
             switch (rotation)
             {
                 case 0:
