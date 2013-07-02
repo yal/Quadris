@@ -107,11 +107,11 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Block.cs" />
+    <Compile Include="Cuboid.cs" />
     <Compile Include="IBlock.cs" />
     <Compile Include="JBlock.cs" />
     <Compile Include="LBlock.cs" />
     <Compile Include="BlockControl.cs" />
-    <Compile Include="Cuboid.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -124,7 +124,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="Quadris_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\block.png" />

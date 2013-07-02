@@ -8,8 +8,6 @@ namespace Quadris
 {
     interface Block
     {
-        // Properties:
-        int rotation;
 
          void placeBlock(int[][] gameFieldArray, int centerIndexI, int centerIndexJ); //draw block in gameArray
          void rotate(); //change rotationstate of block

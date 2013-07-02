@@ -68,17 +68,5 @@ namespace Quadris
             return true;
         }
 
-        int Block.rotation
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
     }
 }
