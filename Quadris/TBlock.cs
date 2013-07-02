@@ -12,6 +12,9 @@ namespace Quadris
 
         public void placeBlock(int[][] gameFieldArray, int centerIndexI, int centerIndexJ)
         {
+            if (!checkIfBlockCanBePlaced(gameFieldArray, centerIndexI, centerIndexJ))
+                return;
+
             switch (rotation) { 
                 case 0:
                     drawBlock(gameFieldArray,centerIndexI,centerIndexJ,0,-1,1,0,-1,0);
@@ -45,7 +48,8 @@ namespace Quadris
 
         public bool checkIfBlockCanBePlaced(int[][] gameFieldArray, int centerIndexI, int centerIndexJ)
         {
-            throw new NotImplementedException();
+            return true;
+
         }
 
     }

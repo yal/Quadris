@@ -49,10 +49,5 @@ namespace Quadris
             return true;
         }
 
-
-        public bool checkIfBlockCsanBePlaced(int[][] gameFieldArray, int centerIndexI, int centerIndexJ)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
