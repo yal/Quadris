@@ -11,7 +11,7 @@
         <Image HorizontalAlignment="Left" Height="247" VerticalAlignment="Top" Width="805" Source="Assets/SplashScreen.png" Margin="408,-33,0,0"/>
 
 
-        <GridView x:Name="PlayingField"  HorizontalAlignment="Left" Height="531" Margin="415,191,0,0" VerticalAlignment="Top" Width="526">
+        <GridView x:Name="PlayingField"  HorizontalAlignment="Left" Height="531" Margin="415,191,0,0" VerticalAlignment="Top" Width="526" SelectionMode="None" IsItemClickEnabled="True">
             <GridViewItem Height="50" Width="50"  Background="White"/>
             <GridViewItem Height="50" Width="50" Background="White" />
             <GridViewItem Height="50" Width="50" Background="White" />
@@ -34,7 +34,7 @@
             <GridViewItem Height="50" Width="50" Background="White" />
             <GridViewItem Height="50" Width="50" Background="White" />
             <GridViewItem Height="50" Width="50" Background="White" />
-            <GridViewItem Height="50" Width="50" Background="White" Margin="0" />
+            <GridViewItem Height="50" Width="50" Background="White" />
             <GridViewItem Height="50" Width="50" Background="White" />
             <GridViewItem Height="50" Width="50" Background="White" />
             <GridViewItem Height="50" Width="50" Background="White" />
@@ -115,7 +115,7 @@
 
 
         </GridView>
-        <Button x:Name="NewgameButton" Content="New Game" HorizontalAlignment="Left" Margin="1030,206,0,0" VerticalAlignment="Top" Height="65" Width="220" Background="#FF00AAFF" BorderBrush="Transparent" BorderThickness="0" FontSize="30" FontWeight="Normal"/>
+        <Button x:Name="NewgameButton" Content="New Game" HorizontalAlignment="Left" Margin="982,206,0,0" VerticalAlignment="Top" Height="65" Width="220" Background="#FF00AAFF" BorderBrush="Transparent" BorderThickness="0" FontSize="30" FontWeight="Normal"/>
         <Image HorizontalAlignment="Left" Height="195" Margin="119,360,0,0" VerticalAlignment="Top" Width="195" Source="Assets/block.png"/>
         <TextBlock x:Name="Score" HorizontalAlignment="Left" Margin="988,461,0,0" TextWrapping="Wrap" Text="Score: 0" VerticalAlignment="Top" Height="46" Width="252" FontSize="30"/>
         <TextBlock x:Name="UpNextLabel" HorizontalAlignment="Left" Margin="154,294,0,0" TextWrapping="Wrap" Text="Up Next:" VerticalAlignment="Top" FontSize="30"/>
