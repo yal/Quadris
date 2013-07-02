@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Quadris
 {
-    class cuboid : Block
+    class JBlock: Block
     {
-
-
-        public int rotation = 0;
+         public int rotation = 0;
  
 
         public void placeBlock(int[][] gameFieldArray, int centerIndexI, int centerIndexJ)
@@ -25,7 +23,14 @@ namespace Quadris
 
         public void rotate()
         {
-            // no rotation needed
+            if(rotation == 3) 
+            {
+                rotation = 0;
+            }
+            else
+            {
+                rotation++;
+            }
         }
 
         public bool checkIfBlockCanBePlaced(int[][] gameFieldArray, int centerIndexI, int centerIndexJ)
@@ -48,5 +53,17 @@ namespace Quadris
 
             return true;
         }
-    }
+    
+int Block.rotation
+{
+	  get 
+	{ 
+		throw new NotImplementedException(); 
+	}
+	  set 
+	{ 
+		throw new NotImplementedException(); 
+	}
 }
+}
+    }

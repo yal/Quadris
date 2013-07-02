@@ -31,7 +31,7 @@
             <GridViewItem Height="50" Width="50" Background="White" />
             <GridViewItem Height="50" Width="50" Background="White" />
             <GridViewItem Height="50" Width="50" Background="White" />
-            <GridViewItem Height="50" Width="50" Background="White" />
+            <GridViewItem Height="50" Width="50" Background="White" Margin="0" />
             <GridViewItem Height="50" Width="50" Background="White" />
             <GridViewItem Height="50" Width="50" Background="White" />
             <GridViewItem Height="50" Width="50" Background="White" />
