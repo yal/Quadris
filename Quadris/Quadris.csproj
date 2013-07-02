@@ -111,12 +111,15 @@
     <Compile Include="IBlock.cs" />
     <Compile Include="JBlock.cs" />
     <Compile Include="LBlock.cs" />
+    <Compile Include="BlockControl.cs" />
+    <Compile Include="Cuboid.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SBlock.cs" />
     <Compile Include="ZBlock.cs" />
+    <Compile Include="TBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

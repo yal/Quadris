@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Quadris
 {
-    class cuboid : Block
+    class Cuboid : BlockControl, Block
     {
 
 
@@ -47,6 +47,12 @@ namespace Quadris
             }
 
             return true;
+        }
+
+
+        public bool checkIfBlockCsanBePlaced(int[][] gameFieldArray, int centerIndexI, int centerIndexJ)
+        {
+            throw new NotImplementedException();
         }
     }
 }
