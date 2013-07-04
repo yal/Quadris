@@ -8,15 +8,46 @@ namespace Quadris
 {
     class BlockControl
     {
-        public void drawBlock(int[][] gameFieldArray, int centerIndexI, int centerIndexJ, int delta1I, int delta1J, int delta2I, int delta2J, int delta3I, int delta3J)
+        public int rotation = 0; // rotation 0 - 3
+        public int piecesPlaced = 0; // pieces places 0 - 3
+        public int[,] clickedIndexes = new int[4, 2]; // clicked Indexes in gameArray
+        public int[,] blockCoordinates; //saves coordinates accroding to center ( rotationstate1 : blockCoordinates[0-2][0/1] etc. )
+
+
+        public void drawBlock(int[,] gameFieldArray, int lastClickedIndexI, int lastClickedIndexJ)
         {
 
-            gameFieldArray[centerIndexI][centerIndexJ] = 1;
-            gameFieldArray[centerIndexI+delta1I][centerIndexJ+delta1J] = 1;
-            gameFieldArray[centerIndexI + delta2I][centerIndexJ + delta2J] = 1;
-            gameFieldArray[centerIndexI + delta2I][centerIndexJ + delta2J] = 1;
+            gameFieldArray[clickedIndexes[0, 0],clickedIndexes[0, 1]] = 1;
+            gameFieldArray[clickedIndexes[1, 0],clickedIndexes[1, 1]] = 1;
+            gameFieldArray[clickedIndexes[2, 0],clickedIndexes[2, 1]] = 1;
+            gameFieldArray[lastClickedIndexI,lastClickedIndexJ] = 1;
+
+        }
+
+        public int[] getSmallestIndex() {
+
+            int[] result = new int[2] {clickedIndexes[0,0],clickedIndexes[0,1]};
 
 
+            for (int i = 1; i < piecesPlaced; i++) {
+                if (result[1] > clickedIndexes[i, 1])
+                {
+                    result[0] = clickedIndexes[i, 0];
+                    result[1] = clickedIndexes[i, 1];
+                }
+                else {
+
+                    if (result[1] == clickedIndexes[i, 1] && result[0] > clickedIndexes[i, 0])
+                    {
+                        result[0] = clickedIndexes[i, 0];
+                        result[1] = clickedIndexes[i, 1];
+                    }
+                
+                }
+            }
+
+            return result;
+        
         }
     }
 }

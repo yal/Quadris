@@ -18,14 +18,20 @@ using Windows.UI.Xaml.Shapes;
 
 namespace Quadris
 {
+
     /// <summary>
     /// Eine leere Seite, die eigenständig verwendet werden kann oder auf die innerhalb eines Rahmens navigiert werden kann.
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public int[,] gameArray = new int[10,10];
+        IBlock block = new IBlock();
         public MainPage()
         {
             this.InitializeComponent();
+            Array.Clear(gameArray, 0, gameArray.Length);
+
+
         }
 
         /// <summary>
@@ -43,6 +49,11 @@ namespace Quadris
             {
                 Rectangle rect =  e.ClickedItem as Rectangle;
                 rect.Fill = new SolidColorBrush(Color.FromArgb(255,0x00,0xAA,0xFF));
+                System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 1, 1));
+                System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 2, 0));
+                System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 1, 2));
+                System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 4, 4));
+                System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 1, 3));
 
             }
 

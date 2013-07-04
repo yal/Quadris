@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Quadris.App">
-      <VisualElements DisplayName="Quadris" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Quadris" ForegroundText="light" BackgroundColor="#A32473">
+      <VisualElements DisplayName="Quadris" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Quadris" ForegroundText="light" BackgroundColor="#FFFFFF">
         <DefaultTile ShowName="noLogos" />
         <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#A32473" />
       </VisualElements>
