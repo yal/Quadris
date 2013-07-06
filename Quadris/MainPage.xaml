@@ -289,112 +289,112 @@
         </Style>
     </Page.Resources>
 
-    <Grid Background="#A32473" >
+    <Grid Background="#FFFFFF" >
         <Image HorizontalAlignment="Left" Height="247" VerticalAlignment="Top" Width="805" Source="Assets/SplashScreen.png" Margin="408,-33,0,0"/>
 
 
         <GridView x:Name="PlayingField" IsItemClickEnabled="True" HorizontalAlignment="Left" Height="531" Margin="415,191,0,0" VerticalAlignment="Top" Width="526" SelectionMode="None"  ItemContainerStyle="{StaticResource GridViewItemStyle1}"  ItemClick="PlayingField_ItemClick">
             <GridView.Items>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
-                <Rectangle Height="50" Width="50" Fill="White"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
+                <Rectangle Height="50" Width="50" Fill="LightGray"/>
 
             </GridView.Items>
             
@@ -402,8 +402,8 @@
         
         <Button x:Name="NewgameButton" Content="New Game" HorizontalAlignment="Left" Margin="982,206,0,0" VerticalAlignment="Top" Height="65" Width="220" Background="#FF00AAFF" BorderBrush="Transparent" BorderThickness="0" FontSize="30" FontWeight="Normal"/>
         <Image HorizontalAlignment="Left" Height="195" Margin="119,360,0,0" VerticalAlignment="Top" Width="195" Source="Assets/block.png"/>
-        <TextBlock x:Name="Score" HorizontalAlignment="Left" Margin="988,461,0,0" TextWrapping="Wrap" Text="Score: 0" VerticalAlignment="Top" Height="46" Width="252" FontSize="30"/>
-        <TextBlock x:Name="UpNextLabel" HorizontalAlignment="Left" Margin="154,294,0,0" TextWrapping="Wrap" Text="Up Next:" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="Score" HorizontalAlignment="Left" Margin="988,461,0,0" TextWrapping="Wrap" Text="Score: 0" VerticalAlignment="Top" Height="46" Width="252" FontSize="30" Foreground="#FF00AAFF"/>
+        <TextBlock x:Name="UpNextLabel" HorizontalAlignment="Left" Margin="154,294,0,0" TextWrapping="Wrap" Text="Up Next:" VerticalAlignment="Top" FontSize="30" Foreground="#FF00AAFF"/>
 
 
     </Grid>
