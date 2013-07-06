@@ -13,6 +13,26 @@ namespace Quadris
         public int[,] clickedIndexes = new int[4, 2]; // clicked Indexes in gameArray
         public int[,] blockCoordinates; //saves coordinates accroding to center ( rotationstate1 : blockCoordinates[0-2][0/1] etc. )
 
+        public void resetState() {
+
+            piecesPlaced = 0;
+            clickedIndexes = new int[4, 2];
+
+        }
+
+
+
+        public int[] getClickedIndexes() {
+            
+            int[] results = new int[piecesPlaced];
+            for (int i = 0; i < piecesPlaced; i++) {
+
+                results[i] = (clickedIndexes[i, 0] * 10) + clickedIndexes[i, 1];
+            }
+
+                return results;
+        }
+
         public void rotate()
         {
             if (rotation == 3)
@@ -22,6 +42,21 @@ namespace Quadris
             else
             {
                 rotation++;
+            }
+
+        }
+
+        //overload rotatefunction to rotate to certain state (int i, 0-3)
+        public void rotate(int i)
+        {
+            // check for invalid rotation values
+            if (i > 3 || i < 0)
+            {
+                return;
+            }
+            else
+            {
+                rotation = i;
             }
 
         }
@@ -42,7 +77,7 @@ namespace Quadris
             int[] result = new int[2] {clickedIndexes[0,0],clickedIndexes[0,1]};
 
 
-            for (int i = 1; i < piecesPlaced; i++) {
+            for (int i = 1; i < piecesPlaced+1; i++) {
                 if (result[1] > clickedIndexes[i, 1])
                 {
                     result[0] = clickedIndexes[i, 0];
@@ -63,6 +98,35 @@ namespace Quadris
         
         }
 
+        public int[] getSecondSmallestIndex()
+        {
+
+            int[] result = new int[2] { clickedIndexes[0, 0], clickedIndexes[0, 1] };
+
+
+            for (int i = 1; i < piecesPlaced; i++)
+            {
+                if (result[1] > clickedIndexes[i, 1])
+                {
+                    result[0] = clickedIndexes[i, 0];
+                    result[1] = clickedIndexes[i, 1];
+                }
+                else
+                {
+
+                    if (result[1] == clickedIndexes[i, 1] && result[0] > clickedIndexes[i, 0])
+                    {
+                        result[0] = clickedIndexes[i, 0];
+                        result[1] = clickedIndexes[i, 1];
+                    }
+
+                }
+            }
+
+            return result;
+
+        }
+
         public bool checkIfPieceCanBePlaced(int[,] gameFieldArray, int x, int y)
         {
             if (piecesPlaced == 0)
@@ -78,10 +142,22 @@ namespace Quadris
 
             if (piecesPlaced == 1)
             {
+                clickedIndexes[1, 0] = x;
+                clickedIndexes[1, 1] = y;
+
                 if (gameFieldArray[x, y] != 1)
                 {
-                    int deltaX = x - clickedIndexes[0, 0];
-                    int deltaY = y - clickedIndexes[0, 1];
+                  
+                    int deltaX = x - getSmallestIndex()[0];
+                    int deltaY = y - getSmallestIndex()[1];
+
+
+                    if (deltaX <= 0 && deltaY <= 0) {
+
+                        deltaX = getSecondSmallestIndex()[0] - x;
+                        deltaY = getSecondSmallestIndex()[1] - y;
+                    
+                    }
 
                     for (int i = 0 + 3 * rotation; i < 3 + 3 * rotation; i++)
                     {
@@ -101,11 +177,23 @@ namespace Quadris
 
             if (piecesPlaced == 2)
             {
+                clickedIndexes[2, 0] = x;
+                clickedIndexes[2, 1] = y;
+
                 if (gameFieldArray[x, y] != 1)
                 {
 
                     int deltaX = x - getSmallestIndex()[0];
                     int deltaY = y -getSmallestIndex()[1];
+
+                    if (deltaX <= 0 && deltaY <= 0)
+                    {
+
+                        deltaX = getSecondSmallestIndex()[0] - x;
+                        deltaY = getSecondSmallestIndex()[1] - y;
+
+                    }
+                    
 
                     for (int j = 0 + 3 * rotation; j < 3 + 3 * rotation; j++)
                     {
@@ -123,11 +211,22 @@ namespace Quadris
 
             if (piecesPlaced == 3)
             {
+                clickedIndexes[3, 0] = x;
+                clickedIndexes[3, 1] = y;
+
                 if (gameFieldArray[x, y] != 1)
                 {
 
                     int deltaX = x-getSmallestIndex()[0];
                     int deltaY = y-getSmallestIndex()[1];
+
+                    if (deltaX <= 0 && deltaY <= 0)
+                    {
+
+                        deltaX = getSecondSmallestIndex()[0] - x;
+                        deltaY = getSecondSmallestIndex()[1] - y;
+
+                    }
 
 
                     for (int j = 0 + 3 * rotation; j < 3 + 3 * rotation; j++)
@@ -138,6 +237,7 @@ namespace Quadris
                             clickedIndexes[3, 0] = x;
                             clickedIndexes[3, 1] = y;
                             piecesPlaced++;
+                            drawBlock(gameFieldArray, x, y); // draw block in grid
                             return true;
                         }
 
