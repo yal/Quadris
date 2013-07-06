@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quadris.Blocks;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace Quadris
     public sealed partial class MainPage : Page
     {
         public int[,] gameArray = new int[10,10];
-        IBlock block = new IBlock();
+        JBlock block = new JBlock();
         public MainPage()
         {
             this.InitializeComponent();
@@ -50,10 +51,11 @@ namespace Quadris
                 Rectangle rect =  e.ClickedItem as Rectangle;
                 rect.Fill = new SolidColorBrush(Color.FromArgb(255,0x00,0xAA,0xFF));
                 System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 1, 1));
-                System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 2, 0));
-                System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 1, 2));
-                System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 4, 4));
+                System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 2, 2));
                 System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 1, 3));
+                System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 1, 5));
+                System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 0, 3));
+
 
             }
 
