@@ -26,11 +26,12 @@ namespace Quadris
     public sealed partial class MainPage : Page
     {
         public int[,] gameArray = new int[10,10];
-        JBlock block = new JBlock();
+        TBlock block = new TBlock();
         public MainPage()
         {
             this.InitializeComponent();
             Array.Clear(gameArray, 0, gameArray.Length);
+            block.rotate(2);
 
 
         }
@@ -49,13 +50,31 @@ namespace Quadris
             if (e.ClickedItem != null)
             {
                 Rectangle rect =  e.ClickedItem as Rectangle;
-                rect.Fill = new SolidColorBrush(Color.FromArgb(255,0x00,0xAA,0xFF));
-                System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 1, 1));
-                System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 2, 2));
-                System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 1, 3));
-                System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 1, 5));
-                System.Diagnostics.Debug.WriteLine(block.checkIfPieceCanBePlaced(gameArray, 0, 3));
+                int index = PlayingField.Items.IndexOf(rect);
+                int x = (int)(index / 10);
+                int y = index % 10;
+                if (block.checkIfPieceCanBePlaced(gameArray, x, y))
+                {
 
+                    rect.Fill = new SolidColorBrush(Color.FromArgb(255, 0x00, 0xAA, 0xFF));
+
+                }
+
+                else { 
+                
+                 SolidColorBrush brush = new SolidColorBrush(Colors.LightGray);
+
+
+                 for (int i = 0; i < block.getClickedIndexes().GetLength(0); i++) {
+
+
+                     rect = PlayingField.Items[block.getClickedIndexes()[i]] as Rectangle;
+                     rect.Fill = brush;
+                 
+                 }
+                 block.resetState();
+                
+                }
 
             }
 
