@@ -10,6 +10,7 @@ namespace Quadris
     {
         public int rotation = 0; // rotation 0 - 3
         public int piecesPlaced = 0; // pieces places 0 - 3
+        public string blockName;
         public int[,] clickedIndexes = new int[4, 2]; // clicked Indexes in gameArray
         public int[,] blockCoordinates; //saves coordinates accroding to center ( rotationstate1 : blockCoordinates[0-2][0/1] etc. )
 
@@ -20,6 +21,11 @@ namespace Quadris
 
         }
 
+        public string getImageName() {
+
+            return blockName + "_" + rotation + ".png";
+        
+        }
 
 
         public int[] getClickedIndexes() {

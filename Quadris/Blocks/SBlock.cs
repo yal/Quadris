@@ -11,6 +11,8 @@ namespace Quadris.Blocks
 
         public SBlock() {
 
+            blockName = "SBlock";
+
             blockCoordinates = new int[12, 2] { { 1, 0 },// rotation 0
                                                 { 0, 1 },
                                                 { -1, 1 },

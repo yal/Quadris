@@ -11,6 +11,7 @@ namespace Quadris.Blocks
 
         public OBlock() {
 
+            blockName = "OBlock";
             blockCoordinates = new int[12, 2] { { 0, 1 },// rotation 0
                                                 { 1, 0 },
                                                 { 1, 1 },

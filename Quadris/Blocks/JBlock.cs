@@ -9,8 +9,9 @@ namespace Quadris.Blocks
     class JBlock :Block
     {
 
-        public JBlock() { 
-        
+        public JBlock() {
+
+            blockName = "JBlock";
          blockCoordinates = new int[12, 2] {    { 0, 1 },// rotation 0
                                                 { 0, 2 },
                                                 { -1, 2 },

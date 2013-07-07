@@ -10,6 +10,7 @@ namespace Quadris
     {
         public IBlock() {
 
+            blockName = "IBlock";
             blockCoordinates = new int[12, 2] { { 0, 1 },// rotation 0
                                                 { 0, 2 },
                                                 { 0, 3 },

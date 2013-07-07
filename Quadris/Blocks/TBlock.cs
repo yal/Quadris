@@ -10,17 +10,19 @@ namespace Quadris.Blocks
     {
         public TBlock() {
 
+            blockName = "TBlock";
+
             blockCoordinates = new int[12, 2] { { 1, 0 },// rotation 0
-                                                { 1, -1 },
                                                 { 2, 0 },
+                                                { 1, 1 },
                                                 { 0, 1 },// rotation 1
-                                                { -1, 1 },
+                                                { 1, 1 },
                                                 { 0, 2 },
-                                                { 1, 0 },// rotation 2
+                                                { -1, 1 },// rotation 2
+                                                { 0, 1 },
                                                 { 1, 1 },
-                                                { 2, 0 },
                                                 { 0, 1 },// rotation 3
-                                                { 1, 1 },
+                                                { -1, 1 },
                                                 { 0, 2 } };
 
         
