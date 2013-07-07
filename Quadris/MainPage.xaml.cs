@@ -26,14 +26,17 @@ namespace Quadris
     public sealed partial class MainPage : Page
     {
         public int[,] gameArray = new int[10,10];
-        TBlock block = new TBlock();
+        GameController gameController;
+        GuiController guiController;
+        Block block = null;
         public MainPage()
         {
             this.InitializeComponent();
             Array.Clear(gameArray, 0, gameArray.Length);
-            block.rotate(2);
-
-
+            gameController = new GameController();
+            guiController = new GuiController();
+            block = gameController.getRandomBlock();
+            guiController.setNextBlockImage(NextBlockImage,block);
         }
 
         /// <summary>
@@ -60,19 +63,17 @@ namespace Quadris
 
                 }
 
-                else { 
-                
-                 SolidColorBrush brush = new SolidColorBrush(Colors.LightGray);
+                else {
 
+                    GuiController.resetSelection(block,PlayingField);
+       
+                }
 
-                 for (int i = 0; i < block.getClickedIndexes().GetLength(0); i++) {
+                if (block.piecesPlaced == 4) {
 
-
-                     rect = PlayingField.Items[block.getClickedIndexes()[i]] as Rectangle;
-                     rect.Fill = brush;
-                 
-                 }
-                 block.resetState();
+                    block = gameController.getRandomBlock();
+                    guiController.setNextBlockImage(NextBlockImage, block);
+                    guiController.updateScore(Score);
                 
                 }
 

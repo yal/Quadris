@@ -114,6 +114,8 @@
     <Compile Include="Blocks\SBlock.cs" />
     <Compile Include="Blocks\TBlock.cs" />
     <Compile Include="Blocks\ZBlock.cs" />
+    <Compile Include="GameController.cs" />
+    <Compile Include="GuiController.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -125,7 +127,34 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\block.png" />
+    <Content Include="Assets\Blocks\IBlock_0.png" />
+    <Content Include="Assets\Blocks\IBlock_1.png" />
+    <Content Include="Assets\Blocks\IBlock_2.png" />
+    <Content Include="Assets\Blocks\IBlock_3.png" />
+    <Content Include="Assets\Blocks\JBlock_0.png" />
+    <Content Include="Assets\Blocks\JBlock_1.png" />
+    <Content Include="Assets\Blocks\JBlock_2.png" />
+    <Content Include="Assets\Blocks\JBlock_3.png" />
+    <Content Include="Assets\Blocks\LBlock_0.png" />
+    <Content Include="Assets\Blocks\LBlock_1.png" />
+    <Content Include="Assets\Blocks\LBlock_2.png" />
+    <Content Include="Assets\Blocks\LBlock_3.png" />
+    <Content Include="Assets\Blocks\OBlock_0.png" />
+    <Content Include="Assets\Blocks\OBlock_1.png" />
+    <Content Include="Assets\Blocks\OBlock_2.png" />
+    <Content Include="Assets\Blocks\OBlock_3.png" />
+    <Content Include="Assets\Blocks\SBlock_0.png" />
+    <Content Include="Assets\Blocks\SBlock_1.png" />
+    <Content Include="Assets\Blocks\SBlock_2.png" />
+    <Content Include="Assets\Blocks\SBlock_3.png" />
+    <Content Include="Assets\Blocks\TBlock_0.png" />
+    <Content Include="Assets\Blocks\TBlock_1.png" />
+    <Content Include="Assets\Blocks\TBlock_2.png" />
+    <Content Include="Assets\Blocks\TBlock_3.png" />
+    <Content Include="Assets\Blocks\ZBlock_0.png" />
+    <Content Include="Assets\Blocks\ZBlock_1.png" />
+    <Content Include="Assets\Blocks\ZBlock_2.png" />
+    <Content Include="Assets\Blocks\ZBlock_3.png" />
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
