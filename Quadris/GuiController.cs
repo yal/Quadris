@@ -14,7 +14,7 @@ namespace Quadris
     class GuiController
     {
         int placedPieces = 0;
-        public static void resetSelection(Block block, GridView grid) {
+        public static void resetSelection(Block block, GridView grid, int[,] gameFieldArray) {
 
             SolidColorBrush brush = new SolidColorBrush(Colors.LightGray);
 
@@ -26,7 +26,7 @@ namespace Quadris
 
             }
 
-            block.resetState();
+            block.resetState(gameFieldArray);
 
         }
 

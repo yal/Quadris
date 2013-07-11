@@ -65,7 +65,7 @@ namespace Quadris
 
                 else {
 
-                    GuiController.resetSelection(block,PlayingField);
+                    GuiController.resetSelection(block,PlayingField,gameArray);
        
                 }
 

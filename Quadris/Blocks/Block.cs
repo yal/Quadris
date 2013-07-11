@@ -14,11 +14,13 @@ namespace Quadris
         public int[,] clickedIndexes = new int[4, 2]; // clicked Indexes in gameArray
         public int[,] blockCoordinates; //saves coordinates accroding to center ( rotationstate1 : blockCoordinates[0-2][0/1] etc. )
 
-        public void resetState()
+        public void resetState(int[,] gameFieldArray)
         {
-
-            piecesPlaced = 0;
-            clickedIndexes = new int[4, 2];
+         for (int i = 0; i < piecesPlaced; i++)
+            gameFieldArray[clickedIndexes[i, 0], clickedIndexes[i, 1]] = 0;
+         
+         piecesPlaced = 0;
+         clickedIndexes = new int[4, 2];
 
         }
 
@@ -143,6 +145,7 @@ namespace Quadris
                 {
                     clickedIndexes[0, 0] = x;
                     clickedIndexes[0, 1] = y;
+                    gameFieldArray[x, y] = 1;
                     piecesPlaced++;
                     return true;
                 }
@@ -156,6 +159,8 @@ namespace Quadris
 
                     clickedIndexes[1, 0] = x;
                     clickedIndexes[1, 1] = y;
+                    gameFieldArray[x, y] = 1;
+
                     piecesPlaced++;
                     return true;
                 }
@@ -168,6 +173,7 @@ namespace Quadris
                 {
                     clickedIndexes[2, 0] = x;
                     clickedIndexes[2, 1] = y;
+                    gameFieldArray[x, y] = 1;
                     piecesPlaced++;
                     return true;
                 }
@@ -179,6 +185,7 @@ namespace Quadris
                 {
                     clickedIndexes[3, 0] = x;
                     clickedIndexes[3, 1] = y;
+                    gameFieldArray[x, y] = 1;
                     piecesPlaced++;
                     return checkIfBlockIsValid();
                 }
