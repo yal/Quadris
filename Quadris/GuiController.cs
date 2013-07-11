@@ -38,7 +38,7 @@ namespace Quadris
 
         internal void updateScore(TextBlock label) {
             placedPieces++;
-            label.Text = "Score : " + (placedPieces * 4) + "%";
+            label.Text = "Score : " + (placedPieces * 170);
 
         
         }
