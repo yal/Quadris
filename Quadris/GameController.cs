@@ -51,5 +51,40 @@ namespace Quadris
             block.rotate(rorationState);
             return block;
         }
+
+        public bool checkIfNextMoveIsPossible(int[,] gameFiedlArray, Block block){
+
+            for(int i = 0; i < gameFiedlArray.GetLength(0);i++) {
+                
+                for (int j = 0; j < gameFiedlArray.GetLength(1); j++){
+
+                    
+                    
+                        if (gameFiedlArray[i, j] == 0)
+                        {
+
+                            if (
+                                Enumerable.Range(0,10).Contains(i + block.blockCoordinates[0 + block.rotation * 3, 0]) &&
+                                Enumerable.Range(0,10).Contains(i + block.blockCoordinates[1 + block.rotation * 3, 0]) &&
+                                Enumerable.Range(0,10).Contains(i + block.blockCoordinates[2 + block.rotation * 3, 0]) &&
+                                Enumerable.Range(0,10).Contains(j + block.blockCoordinates[0 + block.rotation * 3, 1]) &&
+                                Enumerable.Range(0,10).Contains(j + block.blockCoordinates[1 + block.rotation * 3, 1]) &&
+                                Enumerable.Range(0,10).Contains(j + block.blockCoordinates[2 + block.rotation * 3, 1])
+)
+                            {
+
+                                if (gameFiedlArray[i + block.blockCoordinates[0 + block.rotation * 3, 0], j + block.blockCoordinates[0 + block.rotation * 3, 1]] == 0 &&
+                                    gameFiedlArray[i + block.blockCoordinates[1 + block.rotation * 3, 0], j + block.blockCoordinates[1 + block.rotation * 3, 1]] == 0 &&
+                                    gameFiedlArray[i + block.blockCoordinates[2 + block.rotation * 3, 0], j + block.blockCoordinates[2 + block.rotation * 3, 1]] == 0)
+                                    return true;
+                            }
+                        }
+                  
+                
+                }
+            }
+
+            return false;
+        }
     }
 }
