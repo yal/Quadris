@@ -74,11 +74,20 @@ namespace Quadris
                     block = gameController.getRandomBlock();
                     guiController.setNextBlockImage(NextBlockImage, block);
                     guiController.updateScore(Score);
+                    if (!gameController.checkIfNextMoveIsPossible(gameArray, block)) {
+
+                        GuiController.gameOver(GameOverSreen,GameOverPoints,GameOverNewGame,GameOverExitGame);
+                    }
                 
                 }
 
             }
 
+        }
+
+        private void onExitClicked(object sender, RoutedEventArgs e)
+        {
+            App.Current.Exit();
         }
     }
 }
