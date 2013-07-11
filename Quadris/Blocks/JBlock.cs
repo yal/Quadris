@@ -13,8 +13,8 @@ namespace Quadris.Blocks
 
             blockName = "JBlock";
          blockCoordinates = new int[12, 2] {    { 0, 1 },// rotation 0
-                                                { 0, 2 },
                                                 { -1, 2 },
+                                                { 0, 2 },
                                                 { 1, 0 },// rotation 1
                                                 { 2, 0 },
                                                 { 2, 1 },
