@@ -21,8 +21,8 @@ namespace Quadris.Blocks
                                                 { -1, 1 },// rotation 2
                                                 { 0, 1 },
                                                 { 1, 1 },
-                                                { 0, 1 },// rotation 3
-                                                { -1, 1 },
+                                                { -1, 1 },// rotation 3
+                                                { 0, 1 },
                                                 { 0, 2 } };
 
         

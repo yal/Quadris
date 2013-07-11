@@ -15,9 +15,9 @@ namespace Quadris.Blocks
             blockCoordinates = new int[12, 2] { { 0, 1 },// rotation 0
                                                 { 0, 2 },
                                                 { 1, 2 },
-                                                { 0, 1 },// rotation 1
+                                                { -2, 1 },// rotation 1
                                                 { -1, 1 },
-                                                { -2, 1 },
+                                                { 0, 1 },
                                                 { 1, 0 },// rotation 2
                                                 { 1, 1 },
                                                 { 1, 2 },

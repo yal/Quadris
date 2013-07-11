@@ -14,29 +14,33 @@ namespace Quadris
         public int[,] clickedIndexes = new int[4, 2]; // clicked Indexes in gameArray
         public int[,] blockCoordinates; //saves coordinates accroding to center ( rotationstate1 : blockCoordinates[0-2][0/1] etc. )
 
-        public void resetState() {
+        public void resetState()
+        {
 
             piecesPlaced = 0;
             clickedIndexes = new int[4, 2];
 
         }
 
-        public string getImageName() {
+        public string getImageName()
+        {
 
             return blockName + "_" + rotation + ".png";
-        
+
         }
 
 
-        public int[] getClickedIndexes() {
-            
+        public int[] getClickedIndexes()
+        {
+
             int[] results = new int[piecesPlaced];
-            for (int i = 0; i < piecesPlaced; i++) {
+            for (int i = 0; i < piecesPlaced; i++)
+            {
 
                 results[i] = (clickedIndexes[i, 0] * 10) + clickedIndexes[i, 1];
             }
 
-                return results;
+            return results;
         }
 
         public void rotate()
@@ -71,66 +75,64 @@ namespace Quadris
         public void drawBlock(int[,] gameFieldArray, int lastClickedIndexI, int lastClickedIndexJ)
         {
 
-            gameFieldArray[clickedIndexes[0, 0],clickedIndexes[0, 1]] = 1;
-            gameFieldArray[clickedIndexes[1, 0],clickedIndexes[1, 1]] = 1;
-            gameFieldArray[clickedIndexes[2, 0],clickedIndexes[2, 1]] = 1;
-            gameFieldArray[lastClickedIndexI,lastClickedIndexJ] = 1;
+            gameFieldArray[clickedIndexes[0, 0], clickedIndexes[0, 1]] = 1;
+            gameFieldArray[clickedIndexes[1, 0], clickedIndexes[1, 1]] = 1;
+            gameFieldArray[clickedIndexes[2, 0], clickedIndexes[2, 1]] = 1;
+            gameFieldArray[lastClickedIndexI, lastClickedIndexJ] = 1;
 
         }
 
-        public int[] getSmallestIndex() {
-
-            int[] result = new int[2] {clickedIndexes[0,0],clickedIndexes[0,1]};
-
-
-            for (int i = 1; i < piecesPlaced+1; i++) {
-                if (result[1] > clickedIndexes[i, 1])
-                {
-                    result[0] = clickedIndexes[i, 0];
-                    result[1] = clickedIndexes[i, 1];
-                }
-                else {
-
-                    if (result[1] == clickedIndexes[i, 1] && result[0] > clickedIndexes[i, 0])
-                    {
-                        result[0] = clickedIndexes[i, 0];
-                        result[1] = clickedIndexes[i, 1];
-                    }
-                
-                }
-            }
-
-            return result;
-        
-        }
-
-        public int[] getSecondSmallestIndex()
+        public void orderClickedIndexes()
         {
 
-            int[] result = new int[2] { clickedIndexes[0, 0], clickedIndexes[0, 1] };
+            int[] temp = new int[2];
+            int[,] cloned = new int[4,2];
+            cloned = (int[,]) clickedIndexes.Clone();
 
 
-            for (int i = 1; i < piecesPlaced; i++)
+            for (int i = 0; i < 4; i++)
             {
-                if (result[1] > clickedIndexes[i, 1])
-                {
-                    result[0] = clickedIndexes[i, 0];
-                    result[1] = clickedIndexes[i, 1];
-                }
-                else
+                for (int j = i + 1; j < 4; j++)
                 {
 
-                    if (result[1] == clickedIndexes[i, 1] && result[0] > clickedIndexes[i, 0])
+                    if (clickedIndexes[i, 1] > clickedIndexes[j, 1])
                     {
-                        result[0] = clickedIndexes[i, 0];
-                        result[1] = clickedIndexes[i, 1];
+                        temp[0] = clickedIndexes[i, 0];
+                        temp[1] = clickedIndexes[i, 1];
+
+                        clickedIndexes[i, 0] = clickedIndexes[j, 0];
+                        clickedIndexes[i, 1] = clickedIndexes[j, 1];
+
+
+                        clickedIndexes[j, 0] = temp[0];
+                        clickedIndexes[j, 1] = temp[1];
+
                     }
 
+                    else {
+
+                        if (clickedIndexes[i, 1] == clickedIndexes[j, 1] && clickedIndexes[i, 0] > clickedIndexes[j, 0]) {
+                            temp[0] = clickedIndexes[i, 0];
+                            temp[1] = clickedIndexes[i, 1];
+
+                            clickedIndexes[i, 0] = clickedIndexes[j, 0];
+                            clickedIndexes[i, 1] = clickedIndexes[j, 1];
+
+
+                            clickedIndexes[j, 0] = temp[0];
+                            clickedIndexes[j, 1] = temp[1];
+                        
+                        
+                        }
+                    
+                    }
                 }
             }
 
-            return result;
-
+            for (int k = 0; k < 4; k++)
+            {
+                System.Diagnostics.Debug.WriteLine("Old: [" + cloned[k,0] + ","+cloned[k,1]+"] New: [" + clickedIndexes[k,0] +","+clickedIndexes[k,1]+"]");
+           }
         }
 
         public bool checkIfPieceCanBePlaced(int[,] gameFieldArray, int x, int y)
@@ -148,111 +150,59 @@ namespace Quadris
 
             if (piecesPlaced == 1)
             {
-                clickedIndexes[1, 0] = x;
-                clickedIndexes[1, 1] = y;
 
                 if (gameFieldArray[x, y] != 1)
                 {
-                  
-                    int deltaX = x - getSmallestIndex()[0];
-                    int deltaY = y - getSmallestIndex()[1];
 
-
-                    if (deltaX <= 0 && deltaY <= 0) {
-
-                        deltaX = getSecondSmallestIndex()[0] - x;
-                        deltaY = getSecondSmallestIndex()[1] - y;
-                    
-                    }
-
-                    for (int i = 0 + 3 * rotation; i < 3 + 3 * rotation; i++)
-                    {
-
-                        if (blockCoordinates[i, 0] == deltaX && blockCoordinates[i, 1] == deltaY)
-                        {
-
-                            clickedIndexes[1, 0] = x;
-                            clickedIndexes[1, 1] = y;
-
-                            piecesPlaced++;
-                            return true;
-                        }
-                    }
+                    clickedIndexes[1, 0] = x;
+                    clickedIndexes[1, 1] = y;
+                    piecesPlaced++;
+                    return true;
                 }
             }
 
             if (piecesPlaced == 2)
             {
-                clickedIndexes[2, 0] = x;
-                clickedIndexes[2, 1] = y;
 
                 if (gameFieldArray[x, y] != 1)
                 {
-
-                    int deltaX = x - getSmallestIndex()[0];
-                    int deltaY = y -getSmallestIndex()[1];
-
-                    if (deltaX <= 0 && deltaY <= 0)
-                    {
-
-                        deltaX = getSecondSmallestIndex()[0] - x;
-                        deltaY = getSecondSmallestIndex()[1] - y;
-
-                    }
-                    
-
-                    for (int j = 0 + 3 * rotation; j < 3 + 3 * rotation; j++)
-                    {
-
-                        if (blockCoordinates[j, 0] == deltaX && blockCoordinates[j, 1] == deltaY)
-                        {
-                            clickedIndexes[2, 0] = x;
-                            clickedIndexes[2, 1] = y;
-                            piecesPlaced++;
-                            return true;
-                        }
-                    }
+                    clickedIndexes[2, 0] = x;
+                    clickedIndexes[2, 1] = y;
+                    piecesPlaced++;
+                    return true;
                 }
             }
 
             if (piecesPlaced == 3)
             {
-                clickedIndexes[3, 0] = x;
-                clickedIndexes[3, 1] = y;
-
                 if (gameFieldArray[x, y] != 1)
                 {
-
-                    int deltaX = x-getSmallestIndex()[0];
-                    int deltaY = y-getSmallestIndex()[1];
-
-                    if (deltaX <= 0 && deltaY <= 0)
-                    {
-
-                        deltaX = getSecondSmallestIndex()[0] - x;
-                        deltaY = getSecondSmallestIndex()[1] - y;
-
-                    }
-
-
-                    for (int j = 0 + 3 * rotation; j < 3 + 3 * rotation; j++)
-                    {
-
-                        if (blockCoordinates[j, 0] == deltaX && blockCoordinates[j, 1] == deltaY)
-                        {
-                            clickedIndexes[3, 0] = x;
-                            clickedIndexes[3, 1] = y;
-                            piecesPlaced++;
-                            drawBlock(gameFieldArray, x, y); // draw block in grid
-                            return true;
-                        }
-
-                    }
+                    clickedIndexes[3, 0] = x;
+                    clickedIndexes[3, 1] = y;
+                    piecesPlaced++;
+                    return checkIfBlockIsValid();
                 }
             }
 
             return false;
         }
 
+        public bool checkIfBlockIsValid()
+        {
+
+            orderClickedIndexes();
+
+            for (int i = 1; i < clickedIndexes.GetLength(0);i++) {
+                int deltaX = clickedIndexes[i,0]-clickedIndexes[0,0];
+                int deltaY = clickedIndexes[i,1]-clickedIndexes[0,1];
+
+                System.Diagnostics.Debug.WriteLine("DeltaX: " + deltaX + " DeltaY: " + deltaY);
+                
+                if (deltaX != blockCoordinates[(i-1) + 3 * rotation, 0] || deltaY != blockCoordinates[(i-1) + 3 * rotation, 1]) {
+                    return false;
+                } 
+            }
+            return true;
+        }
     }
 }
