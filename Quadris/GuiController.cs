@@ -13,7 +13,6 @@ namespace Quadris
 {
     class GuiController
     {
-        static int placedPieces = 0;
         public static void resetSelection(Block block, GridView grid, int[,] gameFieldArray) {
 
             SolidColorBrush brush = new SolidColorBrush(Colors.LightGray);
@@ -36,19 +35,18 @@ namespace Quadris
         
         }
 
-        internal void updateScore(TextBlock label) {
-            placedPieces++;
-            label.Text = "Score : " + (placedPieces * 170);
+        internal void updateScore(TextBlock label, int score) {
+            label.Text = "Score : " + score;
 
         
         }
 
 
 
-        internal static void gameOver(Canvas GameOverSreen, TextBlock GameOverPoints, Button GameOverNewGame, Button GameOverExitGame)
+        internal static void gameOver(Canvas GameOverSreen, TextBlock GameOverPoints, Button GameOverNewGame, Button GameOverExitGame, int points)
         {
 
-            GameOverPoints.Text = placedPieces * 170 + " Points";
+            GameOverPoints.Text = points + " Points";
             GameOverSreen.IsHitTestVisible = true;
             GameOverSreen.Opacity = 1;
 

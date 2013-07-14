@@ -73,10 +73,11 @@ namespace Quadris
 
                     block = gameController.getRandomBlock();
                     guiController.setNextBlockImage(NextBlockImage, block);
-                    guiController.updateScore(Score);
+                    gameController.incrementPlacedPieces();
+                    guiController.updateScore(Score,gameController.getScore());
                     if (!gameController.checkIfNextMoveIsPossible(gameArray, block)) {
 
-                        GuiController.gameOver(GameOverSreen,GameOverPoints,GameOverNewGame,GameOverExitGame);
+                        GuiController.gameOver(GameOverSreen,GameOverPoints,GameOverNewGame,GameOverExitGame,gameController.getScore());
                     }
                 
                 }

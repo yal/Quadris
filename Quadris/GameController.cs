@@ -10,7 +10,7 @@ namespace Quadris
     class GameController
     {
         public Random rnd;
-
+        static int placedPieces = 0;
 
         public GameController() {
             
@@ -50,6 +50,17 @@ namespace Quadris
 
             block.rotate(rorationState);
             return block;
+        }
+
+        public int getScore() {
+
+            return placedPieces * 170;
+        }
+
+        public void incrementPlacedPieces() {
+        
+            placedPieces++;
+        
         }
 
         public bool checkIfNextMoveIsPossible(int[,] gameFiedlArray, Block block){
