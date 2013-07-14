@@ -10,11 +10,13 @@ namespace Quadris
     class GameController
     {
         public Random rnd;
-        static int placedPieces = 0;
+        DateTime startTime;
+        public int score = 0;
 
         public GameController() {
             
             rnd = new Random(); // seed rnd
+            startTime = DateTime.Now;
         
         }
 
@@ -54,13 +56,11 @@ namespace Quadris
 
         public int getScore() {
 
-            return placedPieces * 170;
-        }
-
-        public void incrementPlacedPieces() {
-        
-            placedPieces++;
-        
+            DateTime endTime = DateTime.Now;
+            TimeSpan duration = endTime - startTime;
+            startTime = endTime;
+            score = score + 170 + (100 / duration.Seconds);
+            return  score;
         }
 
         public bool checkIfNextMoveIsPossible(int[,] gameFiedlArray, Block block){
