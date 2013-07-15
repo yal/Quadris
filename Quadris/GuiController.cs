@@ -41,15 +41,38 @@ namespace Quadris
         
         }
 
+        internal void newGame(GridView grid,TextBlock label) {
+
+            SolidColorBrush lightGray = new SolidColorBrush(Colors.LightGray);
+            Rectangle rect;
+
+            for (int i = 0; i < grid.Items.Count; i++) {
+
+                rect = grid.Items[i] as Rectangle;
+                rect.Fill = lightGray;
+            
+            }
+
+            updateScore(label, 0);
+       
+        }
 
 
-        internal static void gameOver(Canvas GameOverSreen, TextBlock GameOverPoints, Button GameOverNewGame, Button GameOverExitGame, int points)
+
+        internal static void gameOver(Canvas GameOverScreen, TextBlock GameOverPoints, Button GameOverNewGame, Button GameOverExitGame, int points)
         {
 
             GameOverPoints.Text = points + " Points";
-            GameOverSreen.IsHitTestVisible = true;
-            GameOverSreen.Opacity = 1;
+            GameOverScreen.IsHitTestVisible = true;
+            GameOverScreen.Opacity = 1;
 
+        }
+
+        internal void hideGameOver(Canvas GameOverScreen) {
+
+            GameOverScreen.IsHitTestVisible = false;
+            GameOverScreen.Opacity = 0;
+        
         }
     }
 }
