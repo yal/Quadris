@@ -76,7 +76,7 @@ namespace Quadris
                     guiController.updateScore(Score,gameController.getScore());
                     if (!gameController.checkIfNextMoveIsPossible(gameArray, block)) {
 
-                        GuiController.gameOver(GameOverSreen,GameOverPoints,GameOverNewGame,GameOverExitGame,gameController.score);
+                        GuiController.gameOver(GameOverScreen,GameOverPoints,GameOverNewGame,GameOverExitGame,gameController.score);
                     }
                 
                 }
@@ -88,6 +88,22 @@ namespace Quadris
         private void onExitClicked(object sender, RoutedEventArgs e)
         {
             App.Current.Exit();
+        }
+
+        private void onNewGameClicked(object sender, RoutedEventArgs e)
+        {
+            gameController.newGame();
+            guiController.newGame(PlayingField, Score);
+            block = gameController.getRandomBlock();
+            Array.Clear(gameArray, 0, gameArray.Length);
+            guiController.setNextBlockImage(NextBlockImage, block);
+
+        }
+
+        private void onGameOverNewGameClick(object sender, RoutedEventArgs e)
+        {
+            guiController.hideGameOver(GameOverScreen);
+            onNewGameClicked(null,null);
         }
     }
 }
