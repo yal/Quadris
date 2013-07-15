@@ -12,16 +12,18 @@ using Windows.UI.Xaml.Shapes;
 namespace Quadris
 {
     class GuiController
-    {
-        public static void resetSelection(Block block, GridView grid, int[,] gameFieldArray) {
+    {   
 
-            SolidColorBrush brush = new SolidColorBrush(Colors.LightGray);
+        // reset last 4 blocks selected
+        public void resetSelection(Block block, GridView grid, int[,] gameFieldArray) {
+
+            SolidColorBrush lightGray = new SolidColorBrush(Colors.LightGray);
 
             for (int i = 0; i < block.getClickedIndexes().GetLength(0); i++)
             {
 
                 Rectangle rect = grid.Items[block.getClickedIndexes()[i]] as Rectangle;
-                rect.Fill = brush;
+                rect.Fill = lightGray;
 
             }
 
@@ -29,19 +31,22 @@ namespace Quadris
 
         }
 
-        internal void setNextBlockImage(Image image, Block block) {
+        // set image for nex block
+        public void setNextBlockImage(Image image, Block block) {
 
             image.Source = new BitmapImage(new Uri("ms-appx:/Assets/Blocks/" + block.getImageName(), UriKind.Absolute));
         
         }
 
-        internal void updateScore(TextBlock label, int score) {
+        //update scoreTextBox
+        public void updateScore(TextBlock label, int score) {
+            
             label.Text = "Score : " + score;
 
-        
         }
 
-        internal void newGame(GridView grid,TextBlock label) {
+        // start a new game, reset color of field and score
+        public void newGame(GridView grid,TextBlock label) {
 
             SolidColorBrush lightGray = new SolidColorBrush(Colors.LightGray);
             Rectangle rect;
@@ -57,9 +62,8 @@ namespace Quadris
        
         }
 
-
-
-        internal static void gameOver(Canvas GameOverScreen, TextBlock GameOverPoints, TextBlock GameOverHighScoreInfo, Button GameOverNewGame, Button GameOverExitGame, int points, bool isNewHighscore)
+        // show gameOverScreen
+        public void gameOver(Canvas GameOverScreen, TextBlock GameOverPoints, TextBlock GameOverHighScoreInfo, Button GameOverNewGame, Button GameOverExitGame, int points, bool isNewHighscore)
         {
             GameController controller = new GameController();
 
@@ -71,7 +75,7 @@ namespace Quadris
 
             else {
 
-                GameOverHighScoreInfo.Text = "Your best score was " + controller.getHighScore() + "!";
+                GameOverHighScoreInfo.Text = "Your best score was " + controller.getHighScore() + " points!";
             
             }
            
@@ -81,7 +85,8 @@ namespace Quadris
 
         }
 
-        internal void hideGameOver(Canvas GameOverScreen) {
+        //hide GameOverScreen
+        public void hideGameOver(Canvas GameOverScreen) {
 
             GameOverScreen.IsHitTestVisible = false;
             GameOverScreen.Opacity = 0;

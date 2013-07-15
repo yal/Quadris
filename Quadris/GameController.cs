@@ -63,6 +63,7 @@ namespace Quadris
             return block;
         }
 
+        //calculate current score
         public int getScore() {
 
             DateTime endTime = DateTime.Now;
@@ -72,12 +73,14 @@ namespace Quadris
             return  score;
         }
 
+        //get saved highscore
         public int getHighScore() {
 
             return (int)localSettings.Values["score"];
         }
-
-        public bool isNewHighScore(int score) {
+        
+        // check for new score
+        public bool isNewHighScore() {
 
             // check if key exists
             if (!localSettings.Values.ContainsKey("score")) {
@@ -100,7 +103,6 @@ namespace Quadris
 
             return false;
         
-        
         }
 
         public bool checkIfNextMoveIsPossible(int[,] gameFiedlArray, Block block){
@@ -109,11 +111,10 @@ namespace Quadris
                 
                 for (int j = 0; j < gameFiedlArray.GetLength(1); j++){
 
-                    
-                    
                         if (gameFiedlArray[i, j] == 0)
                         {
 
+                            // check for index out of range
                             if (
                                 Enumerable.Range(0,10).Contains(i + block.blockCoordinates[0 + block.rotation * 3, 0]) &&
                                 Enumerable.Range(0,10).Contains(i + block.blockCoordinates[1 + block.rotation * 3, 0]) &&
@@ -123,7 +124,7 @@ namespace Quadris
                                 Enumerable.Range(0,10).Contains(j + block.blockCoordinates[2 + block.rotation * 3, 1])
 )
                             {
-
+                                // check if fields are free
                                 if (gameFiedlArray[i + block.blockCoordinates[0 + block.rotation * 3, 0], j + block.blockCoordinates[0 + block.rotation * 3, 1]] == 0 &&
                                     gameFiedlArray[i + block.blockCoordinates[1 + block.rotation * 3, 0], j + block.blockCoordinates[1 + block.rotation * 3, 1]] == 0 &&
                                     gameFiedlArray[i + block.blockCoordinates[2 + block.rotation * 3, 0], j + block.blockCoordinates[2 + block.rotation * 3, 1]] == 0)

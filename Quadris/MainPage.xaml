@@ -468,12 +468,12 @@
         <TextBlock x:Name="Score" HorizontalAlignment="Left" Margin="988,461,0,0" TextWrapping="Wrap" Text="SCORE: 0" VerticalAlignment="Top" Height="46" Width="252" FontSize="30" Foreground="#FF00AAFF"/>
         <TextBlock x:Name="UpNextLabel" HorizontalAlignment="Left" Margin="154,294,0,0" TextWrapping="Wrap" Text="UP NEXT:" VerticalAlignment="Top" FontSize="30" Foreground="#FF00AAFF"/>
         <Canvas x:Name="GameOverScreen" HorizontalAlignment="Left" Height="531" Margin="0,191,0,0" VerticalAlignment="Top" Width="1366" Background="#FF00AAFF" IsHitTestVisible="False" Opacity="0">
-            <TextBlock x:Name="GameOverText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Game Over" VerticalAlignment="Top" FontSize="80" Canvas.Left="485" Canvas.Top="43" FontWeight="Light"/>
-            <TextBlock x:Name="GameOverInfoText" Canvas.Left="375" TextWrapping="Wrap" Text="Sorry, there are no more possible moves! You reached a Score of " Canvas.Top="183" FontSize="40" Width="610" TextAlignment="Center" FontWeight="Light"/>
-            <TextBlock x:Name="GameOverPoints" Canvas.Left="540" TextWrapping="Wrap" Text="2022 Points" Canvas.Top="284" FontSize="50"/>
+            <TextBlock x:Name="GameOverText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Game Over" VerticalAlignment="Top" FontSize="80" Canvas.Left="330" Canvas.Top="19" FontWeight="Light" Width="625" TextAlignment="Center"/>
+            <TextBlock x:Name="GameOverInfoText" Canvas.Left="330" TextWrapping="Wrap" Text="Sorry, there are no more possible moves! You've reached a score of " Canvas.Top="144" FontSize="40" Width="625" TextAlignment="Center" FontWeight="Light"/>
+            <TextBlock x:Name="GameOverPoints" Canvas.Left="330" TextWrapping="Wrap" Text="2022 points" Canvas.Top="260" FontSize="50" Width="625" TextAlignment="Center"/>
             <Button x:Name="GameOverNewGame" Content="New Game" Canvas.Left="210" Canvas.Top="426" Height="63" Width="205" Background="White" Foreground="Black" FontSize="25" FontWeight="Light" Click="onGameOverNewGameClick"/>
             <Button x:Name="GameOverExitGame" Content="Exit" Canvas.Left="885" Canvas.Top="426" Height="63" Width="205" Background="White" Foreground="Black" FontSize="25" Click="onExitClicked" FontWeight="Light"/>
-            <TextBlock x:Name="GameOverHighScoreInfo" Canvas.Left="405" TextWrapping="Wrap" Text="This is a new High Score !" Canvas.Top="349" Width="550" Height="63" FontSize="40"/>
+            <TextBlock x:Name="GameOverHighScoreInfo" Canvas.Left="330" TextWrapping="Wrap" Text="This is a new highscore !" Canvas.Top="337" Width="625" Height="63" FontSize="40" HorizontalAlignment="Center" TextAlignment="Center"/>
         </Canvas>
 
 

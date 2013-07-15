@@ -25,14 +25,16 @@ namespace Quadris
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
         public int[,] gameArray = new int[10,10];
         GameController gameController;
         GuiController guiController;
-        Block block = null;
+        Block block = null; // current block
+
         public MainPage()
         {
             this.InitializeComponent();
-            Array.Clear(gameArray, 0, gameArray.Length);
+            Array.Clear(gameArray, 0, gameArray.Length); // zero out array
             gameController = new GameController();
             guiController = new GuiController();
             block = gameController.getRandomBlock();
@@ -53,9 +55,11 @@ namespace Quadris
             if (e.ClickedItem != null)
             {
                 Rectangle rect =  e.ClickedItem as Rectangle;
+                
                 int index = PlayingField.Items.IndexOf(rect);
                 int x = (int)(index / 10);
                 int y = index % 10;
+
                 if (block.checkIfPieceCanBePlaced(gameArray, x, y))
                 {
 
@@ -65,7 +69,7 @@ namespace Quadris
 
                 else {
 
-                    GuiController.resetSelection(block,PlayingField,gameArray);
+                    guiController.resetSelection(block,PlayingField,gameArray);
        
                 }
 
@@ -74,9 +78,10 @@ namespace Quadris
                     block = gameController.getRandomBlock();
                     guiController.setNextBlockImage(NextBlockImage, block);
                     guiController.updateScore(Score,gameController.getScore());
+
                     if (!gameController.checkIfNextMoveIsPossible(gameArray, block)) {
 
-                        GuiController.gameOver(GameOverScreen,GameOverPoints,GameOverHighScoreInfo,GameOverNewGame,GameOverExitGame,gameController.score,gameController.isNewHighScore(gameController.score));
+                        guiController.gameOver(GameOverScreen,GameOverPoints,GameOverHighScoreInfo,GameOverNewGame,GameOverExitGame,gameController.score,gameController.isNewHighScore());
                     }
                 
                 }

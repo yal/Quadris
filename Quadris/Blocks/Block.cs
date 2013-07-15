@@ -10,12 +10,14 @@ namespace Quadris
     {
         public int rotation = 0; // rotation 0 - 3
         public int piecesPlaced = 0; // pieces places 0 - 3
-        public string blockName;
+        public string blockName; // name of teh block
         public int[,] clickedIndexes = new int[4, 2]; // clicked Indexes in gameArray
         public int[,] blockCoordinates; //saves coordinates accroding to center ( rotationstate1 : blockCoordinates[0-2][0/1] etc. )
 
+        // reset block status
         public void resetState(int[,] gameFieldArray)
         {
+
          for (int i = 0; i < piecesPlaced; i++)
             gameFieldArray[clickedIndexes[i, 0], clickedIndexes[i, 1]] = 0;
          
@@ -31,7 +33,7 @@ namespace Quadris
 
         }
 
-
+        // get selected indexes converted to GridViewIndexes
         public int[] getClickedIndexes()
         {
 
@@ -45,6 +47,7 @@ namespace Quadris
             return results;
         }
 
+        // rotate CCV
         public void rotate()
         {
             if (rotation == 3)
@@ -55,10 +58,9 @@ namespace Quadris
             {
                 rotation++;
             }
-
         }
 
-        //overload rotatefunction to rotate to certain state (int i, 0-3)
+        // overload rotate() to rotate to a certain state (int i, 0-3)
         public void rotate(int i)
         {
             // check for invalid rotation values
@@ -73,17 +75,7 @@ namespace Quadris
 
         }
 
-
-        public void drawBlock(int[,] gameFieldArray, int lastClickedIndexI, int lastClickedIndexJ)
-        {
-
-            gameFieldArray[clickedIndexes[0, 0], clickedIndexes[0, 1]] = 1;
-            gameFieldArray[clickedIndexes[1, 0], clickedIndexes[1, 1]] = 1;
-            gameFieldArray[clickedIndexes[2, 0], clickedIndexes[2, 1]] = 1;
-            gameFieldArray[lastClickedIndexI, lastClickedIndexJ] = 1;
-
-        }
-
+        // order clicked indexes (Bubblesort)
         public void orderClickedIndexes()
         {
 
@@ -105,7 +97,6 @@ namespace Quadris
                         clickedIndexes[i, 0] = clickedIndexes[j, 0];
                         clickedIndexes[i, 1] = clickedIndexes[j, 1];
 
-
                         clickedIndexes[j, 0] = temp[0];
                         clickedIndexes[j, 1] = temp[1];
 
@@ -114,29 +105,24 @@ namespace Quadris
                     else {
 
                         if (clickedIndexes[i, 1] == clickedIndexes[j, 1] && clickedIndexes[i, 0] > clickedIndexes[j, 0]) {
+                            
                             temp[0] = clickedIndexes[i, 0];
                             temp[1] = clickedIndexes[i, 1];
 
                             clickedIndexes[i, 0] = clickedIndexes[j, 0];
                             clickedIndexes[i, 1] = clickedIndexes[j, 1];
 
-
                             clickedIndexes[j, 0] = temp[0];
                             clickedIndexes[j, 1] = temp[1];
                         
-                        
                         }
-                    
                     }
                 }
             }
 
-            for (int k = 0; k < 4; k++)
-            {
-                System.Diagnostics.Debug.WriteLine("Old: [" + cloned[k,0] + ","+cloned[k,1]+"] New: [" + clickedIndexes[k,0] +","+clickedIndexes[k,1]+"]");
-           }
         }
 
+        // check if clicked piece can be placed
         public bool checkIfPieceCanBePlaced(int[,] gameFieldArray, int x, int y)
         {
             if (piecesPlaced == 0)
@@ -194,21 +180,23 @@ namespace Quadris
             return false;
         }
 
+        // check if block as a whole is valid
         public bool checkIfBlockIsValid()
         {
 
             orderClickedIndexes();
 
             for (int i = 1; i < clickedIndexes.GetLength(0);i++) {
+
                 int deltaX = clickedIndexes[i,0]-clickedIndexes[0,0];
                 int deltaY = clickedIndexes[i,1]-clickedIndexes[0,1];
-
-                System.Diagnostics.Debug.WriteLine("DeltaX: " + deltaX + " DeltaY: " + deltaY);
                 
                 if (deltaX != blockCoordinates[(i-1) + 3 * rotation, 0] || deltaY != blockCoordinates[(i-1) + 3 * rotation, 1]) {
+                    
                     return false;
                 } 
             }
+
             return true;
         }
     }
