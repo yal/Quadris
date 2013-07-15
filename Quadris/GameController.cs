@@ -20,6 +20,14 @@ namespace Quadris
         
         }
 
+        public void newGame() {
+
+            score = 0;
+            startTime = DateTime.Now;
+            rnd = new Random();
+        
+        }
+
         public Block getRandomBlock() {
 
             int blockType = rnd.Next(7);
@@ -59,7 +67,7 @@ namespace Quadris
             DateTime endTime = DateTime.Now;
             TimeSpan duration = endTime - startTime;
             startTime = endTime;
-            score = score + 170 + (100 / duration.Seconds);
+            score = score + 170 + (100 / (duration.Seconds*4));
             return  score;
         }
 
