@@ -76,7 +76,7 @@ namespace Quadris
                     guiController.updateScore(Score,gameController.getScore());
                     if (!gameController.checkIfNextMoveIsPossible(gameArray, block)) {
 
-                        GuiController.gameOver(GameOverScreen,GameOverPoints,GameOverNewGame,GameOverExitGame,gameController.score);
+                        GuiController.gameOver(GameOverScreen,GameOverPoints,GameOverHighScoreInfo,GameOverNewGame,GameOverExitGame,gameController.score,gameController.isNewHighScore(gameController.score));
                     }
                 
                 }

@@ -9,6 +9,7 @@ namespace Quadris
 {
     class GameController
     {
+        Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         public Random rnd;
         DateTime startTime;
         public int score = 0;
@@ -69,6 +70,37 @@ namespace Quadris
             startTime = endTime;
             score = score + 170 + (100 / (duration.Seconds*4));
             return  score;
+        }
+
+        public int getHighScore() {
+
+            return (int)localSettings.Values["score"];
+        }
+
+        public bool isNewHighScore(int score) {
+
+            // check if key exists
+            if (!localSettings.Values.ContainsKey("score")) {
+
+                localSettings.Values["score"] = 0;
+
+            }
+
+            // read old highScore
+            int oldScore = (int) localSettings.Values["score"];
+
+            // check if new score is higher 
+            if (oldScore < score) {
+
+                //update highscore
+                localSettings.Values["score"] = score;
+                return true;
+            
+            }
+
+            return false;
+        
+        
         }
 
         public bool checkIfNextMoveIsPossible(int[,] gameFiedlArray, Block block){

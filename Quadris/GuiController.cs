@@ -59,9 +59,22 @@ namespace Quadris
 
 
 
-        internal static void gameOver(Canvas GameOverScreen, TextBlock GameOverPoints, Button GameOverNewGame, Button GameOverExitGame, int points)
+        internal static void gameOver(Canvas GameOverScreen, TextBlock GameOverPoints, TextBlock GameOverHighScoreInfo, Button GameOverNewGame, Button GameOverExitGame, int points, bool isNewHighscore)
         {
+            GameController controller = new GameController();
 
+            if (isNewHighscore)
+            {
+
+                GameOverHighScoreInfo.Text = "This is a new Highscore!";
+            }
+
+            else {
+
+                GameOverHighScoreInfo.Text = "Your best score was " + controller.getHighScore() + "!";
+            
+            }
+           
             GameOverPoints.Text = points + " Points";
             GameOverScreen.IsHitTestVisible = true;
             GameOverScreen.Opacity = 1;
