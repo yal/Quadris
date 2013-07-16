@@ -30,6 +30,7 @@ namespace Quadris
         GameController gameController;
         GuiController guiController;
         Block block = null; // current block
+        Block blockNext = null; //following block
 
         public MainPage()
         {
@@ -38,7 +39,10 @@ namespace Quadris
             gameController = new GameController();
             guiController = new GuiController();
             block = gameController.getRandomBlock();
+            blockNext = gameController.getRandomBlock();
             guiController.setNextBlockImage(NextBlockImage,block);
+            guiController.setNextBlockImage(FollowingBlockImage, blockNext);
+
         }
 
         /// <summary>
@@ -74,9 +78,10 @@ namespace Quadris
                 }
 
                 if (block.piecesPlaced == 4) {
-
-                    block = gameController.getRandomBlock();
+                    block = blockNext;
+                    blockNext = gameController.getRandomBlock();
                     guiController.setNextBlockImage(NextBlockImage, block);
+                    guiController.setNextBlockImage(FollowingBlockImage, blockNext);
                     guiController.updateScore(Score,gameController.getScore());
 
                     if (!gameController.checkIfNextMoveIsPossible(gameArray, block)) {
