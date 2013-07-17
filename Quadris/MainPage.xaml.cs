@@ -29,6 +29,7 @@ namespace Quadris
         public int[,] gameArray = new int[10,10];
         GameController gameController;
         GuiController guiController;
+        SoundController soundController;
         Block block = null; // current block
         Block blockNext = null; //following block
 
@@ -38,6 +39,8 @@ namespace Quadris
             Array.Clear(gameArray, 0, gameArray.Length); // zero out array
             gameController = new GameController();
             guiController = new GuiController();
+            soundController = new SoundController();
+            soundController.init();
             block = gameController.getRandomBlock();
             blockNext = gameController.getRandomBlock();
             guiController.setNextBlockImage(NextBlockImage,block);
@@ -56,6 +59,8 @@ namespace Quadris
 
         private void PlayingField_ItemClick(object sender, ItemClickEventArgs e)
         {
+            soundController.playSelect();
+
             if (e.ClickedItem != null)
             {
                 Rectangle rect =  e.ClickedItem as Rectangle;
