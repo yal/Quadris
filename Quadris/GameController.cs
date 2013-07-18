@@ -138,5 +138,34 @@ namespace Quadris
 
             return false;
         }
+
+        public bool deleteLine(int[,] gameFieldArray)
+        {
+            bool fullLine = false;
+            int counter = 1;
+            int[,] helpArray = new int[10,10];
+            for (int i = 0; i < gameFieldArray.Length; i++)
+			{
+			 for (int j = 0; j < gameFieldArray.Length; j++)
+			{
+			     if ( gameFieldArray[i, j] == gameFieldArray[i, j+1])
+                 {
+                     counter++;
+                 }
+                 if (counter == 10)
+                 {
+                     int row = i;
+                     helpArray = gameFieldArray;
+
+                     for (int w = 0; w < row; w++)
+                     {
+                         // tralalalalala vergessen was ich machen wollte
+                     }
+                 }
+			}
+			}
+           
+            return fullLine;
+        }
     }
 }

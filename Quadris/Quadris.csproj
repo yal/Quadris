@@ -7,8 +7,8 @@
     <ProjectGuid>{E69CF9EB-FA77-406A-8F85-87C444587A94}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Quadris</RootNamespace>
-    <AssemblyName>Quadris</AssemblyName>
+    <RootNamespace>Filltris</RootNamespace>
+    <AssemblyName>Filltris</AssemblyName>
     <DefaultLanguage>de-DE</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
