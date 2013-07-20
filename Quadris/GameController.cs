@@ -14,28 +14,32 @@ namespace Quadris
         DateTime startTime;
         public int score = 0;
 
-        public GameController() {
-            
+        public GameController()
+        {
+
             rnd = new Random(); // seed rnd
             startTime = DateTime.Now;
-        
+
         }
 
-        public void newGame() {
+        public void newGame()
+        {
 
             score = 0;
             startTime = DateTime.Now;
             rnd = new Random();
-        
+
         }
 
-        public Block getRandomBlock() {
+        public Block getRandomBlock()
+        {
 
             int blockType = rnd.Next(7);
             int rorationState = rnd.Next(4);
             Block block = null;
 
-            switch (blockType) {
+            switch (blockType)
+            {
                 case 0:
                     block = new OBlock();
                     break;
@@ -64,108 +68,130 @@ namespace Quadris
         }
 
         //calculate current score
-        public int getScore() {
+        public int getScore()
+        {
 
             DateTime endTime = DateTime.Now;
             TimeSpan duration = endTime - startTime;
             startTime = endTime;
-            score = score + 170 + (100 / (duration.Seconds*4));
-            return  score;
+            score = score + 170 + (100 / (duration.Seconds * 4));
+            return score;
         }
 
         //get saved highscore
-        public int getHighScore() {
+        public int getHighScore()
+        {
 
             return (int)localSettings.Values["score"];
         }
-        
+
         // check for new score
-        public bool isNewHighScore() {
+        public bool isNewHighScore()
+        {
 
             // check if key exists
-            if (!localSettings.Values.ContainsKey("score")) {
+            if (!localSettings.Values.ContainsKey("score"))
+            {
 
                 localSettings.Values["score"] = 0;
 
             }
 
             // read old highScore
-            int oldScore = (int) localSettings.Values["score"];
+            int oldScore = (int)localSettings.Values["score"];
 
             // check if new score is higher 
-            if (oldScore < score) {
+            if (oldScore < score)
+            {
 
                 //update highscore
                 localSettings.Values["score"] = score;
                 return true;
-            
+
             }
 
             return false;
-        
+
         }
 
-        public bool checkIfNextMoveIsPossible(int[,] gameFiedlArray, Block block){
+        public bool checkIfNextMoveIsPossible(int[,] gameFiedlArray, Block block)
+        {
 
-            for(int i = 0; i < gameFiedlArray.GetLength(0);i++) {
-                
-                for (int j = 0; j < gameFiedlArray.GetLength(1); j++){
+            for (int i = 0; i < gameFiedlArray.GetLength(0); i++)
+            {
 
-                        if (gameFiedlArray[i, j] == 0)
-                        {
+                for (int j = 0; j < gameFiedlArray.GetLength(1); j++)
+                {
 
-                            // check for index out of range
-                            if (
-                                Enumerable.Range(0,10).Contains(i + block.blockCoordinates[0 + block.rotation * 3, 0]) &&
-                                Enumerable.Range(0,10).Contains(i + block.blockCoordinates[1 + block.rotation * 3, 0]) &&
-                                Enumerable.Range(0,10).Contains(i + block.blockCoordinates[2 + block.rotation * 3, 0]) &&
-                                Enumerable.Range(0,10).Contains(j + block.blockCoordinates[0 + block.rotation * 3, 1]) &&
-                                Enumerable.Range(0,10).Contains(j + block.blockCoordinates[1 + block.rotation * 3, 1]) &&
-                                Enumerable.Range(0,10).Contains(j + block.blockCoordinates[2 + block.rotation * 3, 1])
+                    if (gameFiedlArray[i, j] == 0)
+                    {
+
+                        // check for index out of range
+                        if (
+                            Enumerable.Range(0, 10).Contains(i + block.blockCoordinates[0 + block.rotation * 3, 0]) &&
+                            Enumerable.Range(0, 10).Contains(i + block.blockCoordinates[1 + block.rotation * 3, 0]) &&
+                            Enumerable.Range(0, 10).Contains(i + block.blockCoordinates[2 + block.rotation * 3, 0]) &&
+                            Enumerable.Range(0, 10).Contains(j + block.blockCoordinates[0 + block.rotation * 3, 1]) &&
+                            Enumerable.Range(0, 10).Contains(j + block.blockCoordinates[1 + block.rotation * 3, 1]) &&
+                            Enumerable.Range(0, 10).Contains(j + block.blockCoordinates[2 + block.rotation * 3, 1])
 )
-                            {
-                                // check if fields are free
-                                if (gameFiedlArray[i + block.blockCoordinates[0 + block.rotation * 3, 0], j + block.blockCoordinates[0 + block.rotation * 3, 1]] == 0 &&
-                                    gameFiedlArray[i + block.blockCoordinates[1 + block.rotation * 3, 0], j + block.blockCoordinates[1 + block.rotation * 3, 1]] == 0 &&
-                                    gameFiedlArray[i + block.blockCoordinates[2 + block.rotation * 3, 0], j + block.blockCoordinates[2 + block.rotation * 3, 1]] == 0)
-                                    return true;
-                            }
+                        {
+                            // check if fields are free
+                            if (gameFiedlArray[i + block.blockCoordinates[0 + block.rotation * 3, 0], j + block.blockCoordinates[0 + block.rotation * 3, 1]] == 0 &&
+                                gameFiedlArray[i + block.blockCoordinates[1 + block.rotation * 3, 0], j + block.blockCoordinates[1 + block.rotation * 3, 1]] == 0 &&
+                                gameFiedlArray[i + block.blockCoordinates[2 + block.rotation * 3, 0], j + block.blockCoordinates[2 + block.rotation * 3, 1]] == 0)
+                                return true;
                         }
-                  
-                
+                    }
+
+
                 }
             }
 
             return false;
         }
 
-        public bool deleteLine(int[,] gameFieldArray)
+        public int checkLine(int[,] gameFieldArray)
         {
-            bool fullLine = false;
             int counter = 1;
-            int[,] helpArray = new int[10,10];
-            for (int i = 0; i < gameFieldArray.Length; i++)
-			{
-			 for (int j = 0; j < gameFieldArray.Length; j++)
-			{
-			     if ( gameFieldArray[i, j] == gameFieldArray[i, j+1])
-                 {
-                     counter++;
-                 }
-                 if (counter == 10)
-                 {
-                     int row = i;
-                     helpArray = gameFieldArray;
+            int row = -1;
+            for (int i = 0; i < 10 ; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    if (gameFieldArray[i, j] == gameFieldArray[i, j + 1] && gameFieldArray[i,j] != 0)
+                    {
+                        counter++;
+                    }
+                    if (counter == 10)
+                    {
+                        row = i;
+                        
+                    }
+                }
+            }
+            return row;
+        }
 
-                     for (int w = 0; w < row; w++)
-                     {
-                         // tralalalalala vergessen was ich machen wollte
-                     }
-                 }
-			}
-			}
-           
-            return fullLine;
+        public void deleteLine(int[,] gameFieldArray, int row)
+        {
+            int[,] helpArray = new int[10, 10];
+            helpArray = gameFieldArray;
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if(i == 0) 
+                    {
+                        gameFieldArray[0,j] = 0;
+                    } else {
+                        while (i < row)
+                        {
+                            gameFieldArray[i,j] = helpArray[i-1,j];
+                        }
+                  }
+                }
+            }
         }
     }
 }
