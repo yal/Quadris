@@ -110,7 +110,9 @@ namespace Quadris
             gameController.newGame();
             guiController.newGame(PlayingField, Score);
             block = gameController.getRandomBlock();
+            blockNext = gameController.getRandomBlock();
             Array.Clear(gameArray, 0, gameArray.Length);
+            guiController.setNextBlockImage(FollowingBlockImage, blockNext);
             guiController.setNextBlockImage(NextBlockImage, block);
 
         }
