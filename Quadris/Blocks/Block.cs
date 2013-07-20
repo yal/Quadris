@@ -125,58 +125,19 @@ namespace Quadris
         // check if clicked piece can be placed
         public bool checkIfPieceCanBePlaced(int[,] gameFieldArray, int x, int y)
         {
-            if (piecesPlaced == 0)
-            {
                 if (gameFieldArray[x, y] != 1)
                 {
-                    clickedIndexes[0, 0] = x;
-                    clickedIndexes[0, 1] = y;
+                    clickedIndexes[piecesPlaced, 0] = x;
+                    clickedIndexes[piecesPlaced, 1] = y;
                     gameFieldArray[x, y] = 1;
                     piecesPlaced++;
+
+                    if (piecesPlaced == 4) 
+                        return checkIfBlockIsValid();
+  
                     return true;
                 }
-            }
-
-            if (piecesPlaced == 1)
-            {
-
-                if (gameFieldArray[x, y] != 1)
-                {
-
-                    clickedIndexes[1, 0] = x;
-                    clickedIndexes[1, 1] = y;
-                    gameFieldArray[x, y] = 1;
-
-                    piecesPlaced++;
-                    return true;
-                }
-            }
-
-            if (piecesPlaced == 2)
-            {
-
-                if (gameFieldArray[x, y] != 1)
-                {
-                    clickedIndexes[2, 0] = x;
-                    clickedIndexes[2, 1] = y;
-                    gameFieldArray[x, y] = 1;
-                    piecesPlaced++;
-                    return true;
-                }
-            }
-
-            if (piecesPlaced == 3)
-            {
-                if (gameFieldArray[x, y] != 1)
-                {
-                    clickedIndexes[3, 0] = x;
-                    clickedIndexes[3, 1] = y;
-                    gameFieldArray[x, y] = 1;
-                    piecesPlaced++;
-                    return checkIfBlockIsValid();
-                }
-            }
-
+            
             return false;
         }
 
