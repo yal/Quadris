@@ -135,5 +135,18 @@ namespace Quadris
                 }
             }
         }
+
+        internal async Task highlightRow(int row, GridView PlayingField)
+        {
+            SolidColorBrush orange = new SolidColorBrush(Colors.Orange);
+            Rectangle rect;
+            for (int i = 0; i < 10; i++) {
+
+                rect = PlayingField.Items[row + (i * 10)] as Rectangle;
+                rect.Fill = orange;
+            }
+
+            await Task.Delay(TimeSpan.FromSeconds(0.5));
+        }
     }
 }

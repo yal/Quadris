@@ -57,7 +57,7 @@ namespace Quadris
         {
         }
 
-        private void PlayingField_ItemClick(object sender, ItemClickEventArgs e)
+        private async void PlayingField_ItemClick(object sender, ItemClickEventArgs e)
         {
             soundController.playSelect();
 
@@ -91,6 +91,7 @@ namespace Quadris
                     while (gameController.checkLine(gameArray) != -1)
                     {
                         int row = gameController.checkLine(gameArray);
+                        await guiController.highlightRow(row, PlayingField);
                         gameArray = gameController.deleteLine(gameArray, row);
                         guiController.drawGameArray(gameArray, PlayingField);
                     }
