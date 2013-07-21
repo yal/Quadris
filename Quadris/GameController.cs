@@ -155,11 +155,11 @@ namespace Quadris
         {
             int counter = 1;
             int row = -1;
-            for (int i = 0; i < 10 ; i++)
+            for (int i = 0; i < 9 ; i++)
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    if (gameFieldArray[i, j] == gameFieldArray[i, j + 1] && gameFieldArray[i,j] != 0)
+                    if (gameFieldArray[j, i] == gameFieldArray[j, i + 1] && gameFieldArray[j,i] != 0)
                     {
                         counter++;
                     }
@@ -173,7 +173,7 @@ namespace Quadris
             return row;
         }
 
-        public void deleteLine(int[,] gameFieldArray, int row)
+        public int[,] deleteLine(int[,] gameFieldArray, int row)
         {
             int[,] helpArray = new int[10, 10];
             helpArray = gameFieldArray;
@@ -192,6 +192,7 @@ namespace Quadris
                   }
                 }
             }
+            return gameFieldArray;
         }
     }
 }

@@ -91,8 +91,9 @@ namespace Quadris
                     while (gameController.checkLine(gameArray) != -1)
                     {
                         int row = gameController.checkLine(gameArray);
-                        gameController.deleteLine(gameArray, row);
+                        gameArray = gameController.deleteLine(gameArray, row);
                     }
+
                     if (!gameController.checkIfNextMoveIsPossible(gameArray, block)) {
 
                         guiController.gameOver(GameOverScreen,GameOverPoints,GameOverHighScoreInfo,GameOverNewGame,GameOverExitGame,gameController.score,gameController.isNewHighScore());
