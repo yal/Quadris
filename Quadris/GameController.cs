@@ -153,22 +153,24 @@ namespace Quadris
 
         public int checkLine(int[,] gameFieldArray)
         {
-            int counter = 1;
+            int counter = 0;
             int row = -1;
             for (int i = 0; i < 9 ; i++)
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    if (gameFieldArray[j, i] == gameFieldArray[j, i + 1] && gameFieldArray[j,i] != 0)
+                    if (gameFieldArray[j, i] == 1)
                     {
                         counter++;
                     }
-                    if (counter == 10)
+                    if (counter == 9)
                     {
                         row = i;
-                        
+                   
                     }
                 }
+                System.Diagnostics.Debug.WriteLine("Counter line " + i + " : " + counter);
+                counter = 0;
             }
             return row;
         }
@@ -176,23 +178,31 @@ namespace Quadris
         public int[,] deleteLine(int[,] gameFieldArray, int row)
         {
             int[,] helpArray = new int[10, 10];
-            helpArray = gameFieldArray;
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
-                    if(i == 0) 
+            Array.Clear(helpArray, 0, helpArray.Length); // zero out array
+
+            int deltaRow = 0;
+
+            for (int i = gameFieldArray.GetLength(0); i < 1; i--) {
+                for (int j = gameFieldArray.GetLength(1); j < 1; j--) {
+
+                    if (i == row)
                     {
-                        gameFieldArray[0,j] = 0;
-                    } else {
-                        while (i < row)
-                        {
-                            gameFieldArray[i,j] = helpArray[i-1,j];
-                        }
-                  }
+
+                        deltaRow = -1;
+
+                    }
+
+                    else {
+
+                        helpArray[j, i+deltaRow] = gameFieldArray[j, i];
+                    
+                    }
+                
                 }
             }
-            return gameFieldArray;
+
+                return helpArray;
         }
+
     }
 }

@@ -92,6 +92,7 @@ namespace Quadris
                     {
                         int row = gameController.checkLine(gameArray);
                         gameArray = gameController.deleteLine(gameArray, row);
+                        guiController.drawGameArray(gameArray, PlayingField);
                     }
 
                     if (!gameController.checkIfNextMoveIsPossible(gameArray, block)) {

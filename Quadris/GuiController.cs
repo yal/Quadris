@@ -93,6 +93,7 @@ namespace Quadris
         
         }
 
+        //togle Sound icon
         internal void toggleSound(Canvas MuteToggle)
         {
             ImageBrush ib = new ImageBrush();
@@ -109,6 +110,30 @@ namespace Quadris
             }
 
             MuteToggle.Background = ib;
+        }
+
+        //draw game array
+        internal void drawGameArray(int[,] gameArray, GridView PlayingField)
+        {
+            SolidColorBrush lightGray = new SolidColorBrush(Colors.LightGray);
+            SolidColorBrush blue = new SolidColorBrush(Color.FromArgb(255, 0x00, 0xAA, 0xFF));
+            Rectangle rect;
+            int count = 0;
+
+            for (int i = 0; i < gameArray.GetLength(0); i++) {
+
+                for (int j = 0; j <gameArray.GetLength(1); j++) {
+
+                    rect = PlayingField.Items[count] as Rectangle;
+                    if (gameArray[i, j] == 1) {
+                        rect.Fill = blue;
+                    }
+                    else {
+                        rect.Fill = lightGray;
+                    }
+                    count++;
+                }
+            }
         }
     }
 }
