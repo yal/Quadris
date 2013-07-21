@@ -12,6 +12,7 @@ namespace Quadris
     class SoundController
     {
         public MediaElement snd;
+        public static bool isEnabled = true;
 
         public async void init() {
 
@@ -31,8 +32,13 @@ namespace Quadris
 
         public void playSelect()
         {
-            snd.Play();
+            if (isEnabled)
+                snd.Play();
+        }
 
+        internal void toggleSound()
+        {
+            isEnabled = !isEnabled;
         }
     } 
 }

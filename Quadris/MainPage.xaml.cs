@@ -127,5 +127,12 @@ namespace Quadris
             guiController.hideGameOver(GameOverScreen);
             onNewGameClicked(null,null);
         }
+
+        private void onMuteToggle(object sender, TappedRoutedEventArgs e)
+        {
+            soundController.toggleSound();
+            guiController.toggleSound(MuteToggle);
+
+        }
     }
 }

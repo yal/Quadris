@@ -103,7 +103,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="async.cs" />
     <Compile Include="Blocks\IBlock.cs" />
     <Compile Include="Blocks\Block.cs" />
     <Compile Include="Blocks\JBlock.cs" />
@@ -155,7 +154,9 @@
     <Content Include="Assets\Blocks\ZBlock_2.png" />
     <Content Include="Assets\Blocks\ZBlock_3.png" />
     <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\noSound.png" />
     <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\sound.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\select.wav" />

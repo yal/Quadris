@@ -92,5 +92,23 @@ namespace Quadris
             GameOverScreen.Opacity = 0;
         
         }
+
+        internal void toggleSound(Canvas MuteToggle)
+        {
+            ImageBrush ib = new ImageBrush();
+
+            if (SoundController.isEnabled)
+            {
+                ib.ImageSource = new BitmapImage(new Uri("ms-appx:/Assets/sound.png", UriKind.Absolute));
+            }
+
+            else {
+
+                ib.ImageSource = new BitmapImage(new Uri("ms-appx:/Assets/noSound.png", UriKind.Absolute));
+
+            }
+
+            MuteToggle.Background = ib;
+        }
     }
 }
