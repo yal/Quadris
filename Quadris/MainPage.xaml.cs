@@ -30,8 +30,9 @@ namespace Quadris
         GameController gameController;
         GuiController guiController;
         SoundController soundController;
+        SolidColorBrush blue = new SolidColorBrush(Color.FromArgb(255, 0x00, 0xAA, 0xFF));
         Block block = null; // current block
-        Block blockNext = null; //following block
+        Block nextBlock = null; //following block
 
         public MainPage()
         {
@@ -42,9 +43,9 @@ namespace Quadris
             soundController = new SoundController();
             soundController.init();
             block = gameController.getRandomBlock();
-            blockNext = gameController.getRandomBlock();
-            guiController.setNextBlockImage(NextBlockImage,block);
-            guiController.setNextBlockImage(FollowingBlockImage, blockNext);
+            nextBlock = gameController.getRandomBlock();
+            guiController.setNextBlockImage(CurrentBlockImage,block);
+            guiController.setNextBlockImage(NextBlockImage, nextBlock);
 
         }
 
@@ -59,20 +60,20 @@ namespace Quadris
 
         private async void PlayingField_ItemClick(object sender, ItemClickEventArgs e)
         {
+            // play click sound
             soundController.playSelect();
 
             if (e.ClickedItem != null)
             {
+
                 Rectangle rect =  e.ClickedItem as Rectangle;
                 
                 int index = PlayingField.Items.IndexOf(rect);
-                int x = (int)(index / 10);
-                int y = index % 10;
 
-                if (block.checkIfPieceCanBePlaced(gameArray, x, y))
+                if (block.checkIfPieceCanBePlaced(gameArray, gameController.getX(index), gameController.getY(index)))
                 {
 
-                    rect.Fill = new SolidColorBrush(Color.FromArgb(255, 0x00, 0xAA, 0xFF));
+                    rect.Fill = blue;
 
                 }
 
@@ -82,29 +83,44 @@ namespace Quadris
        
                 }
 
+                // if clicked piece was the final one
                 if (block.piecesPlaced == 4) {
-                    block = blockNext;
-                    blockNext = gameController.getRandomBlock();
-                    guiController.setNextBlockImage(NextBlockImage, block);
-                    guiController.setNextBlockImage(FollowingBlockImage, blockNext);
+                    
+                    // switch blocks
+                    block = nextBlock;
+                    nextBlock = gameController.getRandomBlock();
+                    guiController.setNextBlockImage(CurrentBlockImage, block);
+                    guiController.setNextBlockImage(NextBlockImage, nextBlock);
+                    
+                    //update score
                     guiController.updateScore(Score,gameController.getScore());
-                    while (gameController.checkLine(gameArray) != -1)
+
+                    // check for lines to delete
+                    while (gameController.checkRows(gameArray) != -1)
                     {
-                        int row = gameController.checkLine(gameArray);
-                        await guiController.highlightRow(row, PlayingField);
-                        gameArray = gameController.deleteLine(gameArray, row);
-                        guiController.drawGameArray(gameArray, PlayingField);
+                        int row = gameController.checkRows(gameArray);
+                        guiController.highlightRow(row, PlayingField);
+                        gameArray = gameController.deleteRow(gameArray, row);
+
                     }
 
+                    // wait for highlight animation to end and redraw gameArray
+                    await guiController.drawGameArray(gameArray, PlayingField);
+
+                    // check if a next move is possible
                     if (!gameController.checkIfNextMoveIsPossible(gameArray, block)) {
 
-                        guiController.gameOver(GameOverScreen,GameOverPoints,GameOverHighScoreInfo,GameOverNewGame,GameOverExitGame,gameController.score,gameController.isNewHighScore());
+                        guiController.gameOver(GameOverScreen,
+                                               GameOverPoints,
+                                               GameOverHighScoreInfo,
+                                               GameOverNewGame,
+                                               GameOverExitGame,
+                                               gameController.score,
+                                               gameController.isNewHighScore()
+                                               );
                     }
-                
                 }
-
             }
-
         }
 
         private void onExitClicked(object sender, RoutedEventArgs e)
@@ -117,11 +133,10 @@ namespace Quadris
             gameController.newGame();
             guiController.newGame(PlayingField, Score);
             block = gameController.getRandomBlock();
-            blockNext = gameController.getRandomBlock();
+            nextBlock = gameController.getRandomBlock();
             Array.Clear(gameArray, 0, gameArray.Length);
-            guiController.setNextBlockImage(FollowingBlockImage, blockNext);
-            guiController.setNextBlockImage(NextBlockImage, block);
-
+            guiController.setNextBlockImage(NextBlockImage, nextBlock);
+            guiController.setNextBlockImage(CurrentBlockImage, block);
         }
 
         private void onGameOverNewGameClick(object sender, RoutedEventArgs e)

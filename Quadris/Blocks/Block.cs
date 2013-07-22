@@ -10,9 +10,9 @@ namespace Quadris
     {
         public int rotation = 0; // rotation 0 - 3
         public int piecesPlaced = 0; // pieces places 0 - 3
-        public string blockName; // name of teh block
+        public string blockName; // name of the block
         public int[,] clickedIndexes = new int[4, 2]; // clicked Indexes in gameArray
-        public int[,] blockCoordinates; //saves coordinates accroding to center ( rotationstate1 : blockCoordinates[0-2][0/1] etc. )
+        public int[,] blockCoordinates; //saves coordinates accroding to upper left block ( rotationstate1 : blockCoordinates[0-2][0/1] etc. )
 
         // reset block status
         public void resetState(int[,] gameFieldArray)
@@ -40,7 +40,6 @@ namespace Quadris
             int[] results = new int[piecesPlaced];
             for (int i = 0; i < piecesPlaced; i++)
             {
-
                 results[i] = (clickedIndexes[i, 0] * 10) + clickedIndexes[i, 1];
             }
 

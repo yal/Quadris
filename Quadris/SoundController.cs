@@ -12,7 +12,7 @@ namespace Quadris
     class SoundController
     {
         public MediaElement snd;
-        public static bool isEnabled = true;
+        public static bool isEnabled = true; //mute state
 
         public async void init() {
 
@@ -27,7 +27,6 @@ namespace Quadris
                 snd.SetSource(stream, storageFile.ContentType);
 
             }
-        
         }
 
         public void playSelect()
@@ -36,7 +35,7 @@ namespace Quadris
                 snd.Play();
         }
 
-        internal void toggleSound()
+        public void toggleSound()
         {
             isEnabled = !isEnabled;
         }
