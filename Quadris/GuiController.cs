@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
@@ -12,17 +13,21 @@ using Windows.UI.Xaml.Shapes;
 namespace Quadris
 {
     class GuiController
-    {   
+    {
+        int rowsHighlighted = 0; // count of currently highlightet rows
+        SolidColorBrush lightGray = new SolidColorBrush(Colors.LightGray);
+        SolidColorBrush blue = new SolidColorBrush(Color.FromArgb(255, 0x00, 0xAA, 0xFF));
+        SolidColorBrush orange = new SolidColorBrush(Colors.Orange);
+        Rectangle rect;
 
         // reset last 4 blocks selected
         public void resetSelection(Block block, GridView grid, int[,] gameFieldArray) {
 
-            SolidColorBrush lightGray = new SolidColorBrush(Colors.LightGray);
 
             for (int i = 0; i < block.getClickedIndexes().GetLength(0); i++)
             {
 
-                Rectangle rect = grid.Items[block.getClickedIndexes()[i]] as Rectangle;
+                rect = grid.Items[block.getClickedIndexes()[i]] as Rectangle;
                 rect.Fill = lightGray;
 
             }
@@ -31,7 +36,7 @@ namespace Quadris
 
         }
 
-        // set image for nex block
+        // set image for next block
         public void setNextBlockImage(Image image, Block block) {
 
             image.Source = new BitmapImage(new Uri("ms-appx:/Assets/Blocks/" + block.getImageName(), UriKind.Absolute));
@@ -48,9 +53,6 @@ namespace Quadris
         // start a new game, reset color of field and score
         public void newGame(GridView grid,TextBlock label) {
 
-            SolidColorBrush lightGray = new SolidColorBrush(Colors.LightGray);
-            Rectangle rect;
-
             for (int i = 0; i < grid.Items.Count; i++) {
 
                 rect = grid.Items[i] as Rectangle;
@@ -65,7 +67,6 @@ namespace Quadris
         // show gameOverScreen
         public void gameOver(Canvas GameOverScreen, TextBlock GameOverPoints, TextBlock GameOverHighScoreInfo, Button GameOverNewGame, Button GameOverExitGame, int points, bool isNewHighscore)
         {
-            GameController controller = new GameController();
 
             if (isNewHighscore)
             {
@@ -75,10 +76,14 @@ namespace Quadris
 
             else {
 
-                GameOverHighScoreInfo.Text = "Your best score was " + controller.getHighScore() + " points!";
+                GameOverHighScoreInfo.Text = "Your best score was " + GameController.getHighScore() + " points!";
             
             }
-           
+
+            // set size of game over window
+            GameOverScreen.Height = Window.Current.Bounds.Height;
+            GameOverScreen.Width = Window.Current.Bounds.Width;
+
             GameOverPoints.Text = points + " Points";
             GameOverScreen.IsHitTestVisible = true;
             GameOverScreen.Opacity = 1;
@@ -113,11 +118,13 @@ namespace Quadris
         }
 
         //draw game array
-        internal void drawGameArray(int[,] gameArray, GridView PlayingField)
+        internal async Task drawGameArray(int[,] gameArray, GridView PlayingField)
         {
-            SolidColorBrush lightGray = new SolidColorBrush(Colors.LightGray);
-            SolidColorBrush blue = new SolidColorBrush(Color.FromArgb(255, 0x00, 0xAA, 0xFF));
-            Rectangle rect;
+            // wait for 1 second
+            await Task.Delay(TimeSpan.FromSeconds(1));
+
+            // reset rows and count
+            rowsHighlighted = 0;
             int count = 0;
 
             for (int i = 0; i < gameArray.GetLength(0); i++) {
@@ -136,17 +143,17 @@ namespace Quadris
             }
         }
 
-        internal async Task highlightRow(int row, GridView PlayingField)
+        // highlight rows
+        internal void highlightRow(int row, GridView PlayingField)
         {
-            SolidColorBrush orange = new SolidColorBrush(Colors.Orange);
-            Rectangle rect;
             for (int i = 0; i < 10; i++) {
 
-                rect = PlayingField.Items[row + (i * 10)] as Rectangle;
+                rect = PlayingField.Items[row -rowsHighlighted + (i * 10)] as Rectangle;
                 rect.Fill = orange;
             }
 
-            await Task.Delay(TimeSpan.FromSeconds(0.5));
+            rowsHighlighted++;
+
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Quadris
 {
     class GameController
     {
-        Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+        static Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         public Random rnd;
         DateTime startTime;
         public int score = 0;
@@ -79,9 +79,8 @@ namespace Quadris
         }
 
         //get saved highscore
-        public int getHighScore()
+        public static int getHighScore()
         {
-
             return (int)localSettings.Values["score"];
         }
 
@@ -151,51 +150,48 @@ namespace Quadris
             return false;
         }
 
-        public int checkLine(int[,] gameFieldArray)
+        // check for full rows
+        public int checkRows(int[,] gameFieldArray)
         {
             int counter = 0;
-            int row = -1;
-            for (int i = 0; i < 9 ; i++)
+            int row = -1; // index of full row
+            for (int i = 0; i < 10 ; i++)
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    if (gameFieldArray[j, i] == 1)
-                    {
+                    if (gameFieldArray[j, i] == 1 && gameFieldArray[j+1, i] == 1)
                         counter++;
-                    }
+
                     if (counter == 9)
-                    {
                         row = i;
-                   
-                    }
                 }
-                System.Diagnostics.Debug.WriteLine("Counter line " + i + " : " + counter);
-                counter = 0;
+
+                counter = 0; // reset counter for new row
             }
+
             return row;
         }
 
-        public int[,] deleteLine(int[,] gameFieldArray, int row)
+        // delete full Rows
+        public int[,] deleteRow(int[,] gameFieldArray, int row)
         {
             int[,] helpArray = new int[10, 10];
             Array.Clear(helpArray, 0, helpArray.Length); // zero out array
-
             int deltaRow = 0;
 
-            for (int i = gameFieldArray.GetLength(0); i < 1; i--) {
-                for (int j = gameFieldArray.GetLength(1); j < 1; j--) {
+            // start to fill ne new array bottomn to top, ignore the line to delete
+            for (int i = gameFieldArray.GetLength(0)-1; i >= 0; i--) {
+                for (int j = gameFieldArray.GetLength(1)-1; j >= 0; j--) {
 
                     if (i == row)
                     {
-
                         deltaRow = -1;
-
+                        break;
                     }
 
                     else {
 
-                        helpArray[j, i+deltaRow] = gameFieldArray[j, i];
-                    
+                            helpArray[j, i-deltaRow] = gameFieldArray[j, i];
                     }
                 
                 }
@@ -204,5 +200,16 @@ namespace Quadris
                 return helpArray;
         }
 
+        // get xCoordinate
+        internal int getX(int index)
+        {
+           return (int)(index / 10);
+        }
+       
+        // get yCoordinate
+        internal int getY(int index)
+        {
+            return index % 10;
+        }
     }
 }
